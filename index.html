@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stortrics — Point of Sale for Every Business</title>
+  <meta name="description"
+    content="Stortrics is the offline-first POS app built for Nigerian retailers. Track every sale, protect your stock, and know your real profit — even when network is down.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============================================
+       DESIGN SYSTEM
+       ============================================ */
+    :root {
+      --primary: #E8653A;
+      --primary-dark: #C24E28;
+      --primary-light: #FFF0EB;
+      --accent: #1B7A6E;
+      --accent-light: #2BA396;
+      --accent-bg: #EBF7F5;
+      --bg-cream: #FDFAF7;
+      --bg-light: #F8F7F5;
+      --bg-white: #FFFFFF;
+      --text-dark: #1A1A2E;
+      --text-body: #3A3A4E;
+      --text-muted: #5A5A72;
+      --text-light: #8A8A9E;
+      --text-on-primary: #FFFFFF;
+      --border-light: #EEEAE6;
+      --border-card: #E8E4E0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --font-heading: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+      --font-body: 'Inter', 'Segoe UI', sans-serif;
+      --max-width: 1140px;
+      --section-pad: 80px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-body);
+      background: var(--bg-cream);
+    }
+
+    /* ============================================
+       UTILITIES
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(253, 250, 247, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-brand svg {
+      flex-shrink: 0;
+    }
+
+    .nav-brand-name {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--text-dark);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-dark);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-on-primary) !important;
+      background: var(--primary);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-dark);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      padding: 120px 0 var(--section-pad);
+      background: var(--bg-cream);
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-on-primary);
+      background: var(--primary);
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(232, 101, 58, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232, 101, 58, 0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 14px 8px;
+      transition: color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      color: var(--text-dark);
+    }
+
+    .hero-trust {
+      font-size: 13px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-trust span::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-trust span:first-child::before {
+      display: none;
+    }
+
+    /* ============================================
+       STATS BAR
+       ============================================ */
+    .stats-section {
+      padding: 0 0 var(--section-pad);
+    }
+
+    .stats-bar {
+      background: var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(27, 122, 110, 0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+      color: var(--text-on-primary);
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ============================================
+       PROBLEM SECTION
+       ============================================ */
+    .problems-section {
+      padding: var(--section-pad) 0;
+      background: var(--bg-light);
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .problems-questions h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .problem-question {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .problem-question:last-child {
+      border-bottom: none;
+    }
+
+    .pq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      margin-top: 1px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .familiar-list h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+
+    .familiar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .familiar-dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 7px;
+    }
+
+    /* ============================================
+       OUTCOMES ROW
+       ============================================ */
+    .outcomes-section {
+      padding: var(--section-pad) 0;
+    }
+
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .outcome-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .outcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .outcome-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .outcome-icon.stock { background: #EBF7F5; }
+    .outcome-icon.profit { background: #F0FBE6; }
+    .outcome-icon.offline { background: #EEF0FF; }
+    .outcome-icon.security { background: #FFF5E6; }
+
+    .outcome-title {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .outcome-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       FEATURES SECTION
+       ============================================ */
+    .features-section {
+      padding: var(--section-pad) 0;
+      background: var(--bg-light);
+    }
+
+    .features-section .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .features-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .feature-block {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-block:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon-wrap.pos { background: #FFF0EB; }
+    .feature-icon-wrap.inventory { background: #EBF7F5; }
+    .feature-icon-wrap.reports { background: #F0FBE6; }
+    .feature-icon-wrap.staff { background: #FFF5E6; }
+    .feature-icon-wrap.checkout { background: #EEF0FF; }
+    .feature-icon-wrap.email { background: #F5EEFF; }
+
+    .feature-block h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 1px;
+    }
+
+    .feature-screenshots {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+
+    .feature-screenshots img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      transition: transform 0.2s ease;
+    }
+
+    .feature-screenshots img:hover {
+      transform: scale(1.03);
+    }
+
+    .feature-screenshots.full img {
+      max-width: 100%;
+    }
+
+    /* ============================================
+       BUSINESS TYPES
+       ============================================ */
+    .business-section {
+      padding: var(--section-pad) 0;
+    }
+
+    .business-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .business-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .business-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .business-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .business-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .business-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .business-icon.service { background: #EEF0FF; }
+    .business-icon.product { background: #EBF7F5; }
+
+    .business-card h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .business-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       COMPARISON / BEFORE-AFTER
+       ============================================ */
+    .compare-section {
+      padding: var(--section-pad) 0;
+      background: var(--bg-light);
+    }
+
+    .compare-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .compare-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .compare-card {
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+
+    .compare-card.before {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+    }
+
+    .compare-card.after {
+      background: var(--text-dark);
+      color: var(--text-on-primary);
+    }
+
+    .compare-card h3 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .compare-card.before h3 {
+      color: var(--text-muted);
+    }
+
+    .compare-card.after h3 {
+      color: var(--primary);
+    }
+
+    .compare-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .compare-x {
+      flex-shrink: 0;
+      color: #D44;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .compare-check {
+      flex-shrink: 0;
+      color: var(--accent-light);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .compare-card.after .compare-item {
+      color: rgba(255,255,255,0.88);
+    }
+
+    /* ============================================
+       HOW IT WORKS
+       ============================================ */
+    .how-section {
+      padding: var(--section-pad) 0;
+    }
+
+    .how-section .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .how-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .how-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--text-on-primary);
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .how-step h3 {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .how-step p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Step connector lines */
+    .how-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      right: -16px;
+      width: 32px;
+      height: 2px;
+      background: var(--border-card);
+    }
+
+    /* ============================================
+       USER STORY
+       ============================================ */
+    .story-section {
+      padding: var(--section-pad) 0;
+      background: var(--bg-light);
+    }
+
+    .story-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .story-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .story-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      max-width: 820px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .story-header {
+      background: linear-gradient(135deg, var(--text-dark) 0%, #2A2A42 100%);
+      color: var(--text-on-primary);
+      padding: 28px 36px;
+    }
+
+    .story-header h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .story-header p {
+      font-size: 14px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .story-body {
+      padding: 32px 36px;
+    }
+
+    .story-moment {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .story-moment:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .story-time {
+      flex-shrink: 0;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .story-moment h4 {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .story-moment p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .story-impact {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    /* ============================================
+       PERMISSIONS TABLE (inside features)
+       ============================================ */
+    .permissions-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 12px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .permissions-table th {
+      background: var(--text-dark);
+      color: var(--text-on-primary);
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .permissions-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 13px;
+    }
+
+    .permissions-table tr:nth-child(even) {
+      background: var(--bg-light);
+    }
+
+    /* ============================================
+       PROFIT TABLE
+       ============================================ */
+    .profit-examples {
+      background: var(--accent-bg);
+      border: 1px solid rgba(27, 122, 110, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .profit-examples strong {
+      color: var(--accent);
+    }
+
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .cta-section {
+      padding: var(--section-pad) 0;
+      background: var(--text-dark);
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text-on-primary);
+      margin-bottom: 12px;
+    }
+
+    .cta-section .cta-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .cta-section .btn-primary {
+      font-size: 17px;
+      padding: 16px 36px;
+    }
+
+    .cta-contacts {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .cta-contact-item a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .cta-contact-item a:hover {
+      color: var(--primary);
+    }
+
+    .cta-platforms {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 20px;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: #141424;
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 1024px) {
+      :root {
+        --section-pad: 64px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-step:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-pad: 48px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      /* Nav mobile */
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-cream);
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        border-bottom: 1px solid var(--border-light);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 14px 0;
+        font-size: 16px;
+        border-bottom: 1px solid var(--border-light);
+      }
+
+      .nav-links li:last-child a {
+        border-bottom: none;
+      }
+
+      .nav-cta {
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      /* Hero mobile */
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero-desc {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      /* Stats mobile */
+      .stats-bar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px;
+      }
+
+      .stat-divider {
+        width: 60px;
+        height: 1px;
+      }
+
+      /* Problems mobile */
+      .problems-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      /* Outcomes mobile */
+      .outcomes-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .outcome-card {
+        padding: 20px 16px;
+      }
+
+      /* Business types mobile */
+      .business-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Compare mobile */
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* How it works mobile */
+      .how-steps {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      /* Story mobile */
+      .story-moment {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .story-header, .story-body {
+        padding: 24px 20px;
+      }
+
+      /* CTA mobile */
+      .cta-section h2 {
+        font-size: 28px;
+      }
+
+      /* Footer mobile */
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      /* Feature screenshots mobile */
+      .feature-screenshots img {
+        max-width: 160px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .outcomes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-value {
+        font-size: 24px;
+      }
+
+      .cta-section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand" id="nav-brand">
+        <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="#E8653A" />
+          <path d="M7 21V9L14 6l7 3v12" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <rect x="11" y="13" width="6" height="8" rx="1" stroke="#fff" stroke-width="1.4" />
+          <line x1="14" y1="13" x2="14" y2="21" stroke="#fff" stroke-width="0.9" />
+          <circle cx="14" cy="10" r="1.3" fill="#fff" />
+        </svg>
+        <span class="nav-brand-name">Stortrics</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#story">Real Story</a></li>
+        <li><a href="#cta" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+       ══════════════════════════════════════════ -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>If you're still using exercise books to run your shop, <span>you're already losing money.</span></h1>
+        <p class="hero-desc">
+          Stortrics is the offline-first POS app built for Nigerian retailers. Track every sale, protect your stock, and
+          know your real profit — even when MTN or Glo is down.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">Get Started Free →</a>
+          <a href="#features" class="btn-secondary">See how it works ↓</a>
+        </div>
+        <div class="hero-trust">
+          <span>No setup fees</span>
+          <span>Works offline</span>
+          <span>Phone, tablet, or laptop</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       STATS BAR
+       ══════════════════════════════════════════ -->
+  <section class="stats-section reveal" id="stats">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-value">500+</div>
+          <div class="stat-label">Products Tracked</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-value">40s</div>
+          <div class="stat-label">Per Transaction</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Offline Ready</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-value">Multi</div>
+          <div class="stat-label">Branch Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROBLEM SECTION
+       ══════════════════════════════════════════ -->
+  <section class="problems-section" id="problems">
+    <div class="container">
+      <div class="section-label reveal">The Problem</div>
+      <h2 class="section-title reveal">You can't grow what you can't track.</h2>
+      <p class="section-subtitle reveal">
+        These questions keep every shop owner up at night. If you've asked yourself any of them — Stortrics was built for
+        you.
+      </p>
+
+      <div class="problems-grid">
+        <div class="problems-questions reveal">
+          <h3>Sound familiar?</h3>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>How many Oraimo power banks do I actually have right now?</span>
+          </div>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>Who gave that ₦5,000 discount yesterday — and to whom?</span>
+          </div>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>Why don't my numbers match the stock on the shelf?</span>
+          </div>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>I sold ₦3M this month — so where's my profit?</span>
+          </div>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>What should I reorder before the weekend rush?</span>
+          </div>
+          <div class="problem-question">
+            <span class="pq-icon">?</span>
+            <span>Can I even sell when network goes down during peak hours?</span>
+          </div>
+        </div>
+
+        <div class="familiar-list reveal">
+          <h3>If this sounds like your shop:</h3>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>Staff sell under the counter and you only find out weeks later — or never</span>
+          </div>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>You run out of fast-moving items and only discover when a customer asks</span>
+          </div>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>You spend 30 minutes every morning counting phones and power banks manually</span>
+          </div>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>Exercise book tallies never match reality at the end of the month</span>
+          </div>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>Staff give unauthorized "friend price" discounts — your margins vanish</span>
+          </div>
+          <div class="familiar-item">
+            <span class="familiar-dot"></span>
+            <span>When MTN or Glo goes down, your whole operation stops</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       OUTCOMES
+       ══════════════════════════════════════════ -->
+  <section class="outcomes-section reveal" id="outcomes">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: 16px;">
+        <div class="section-label">What Changes</div>
+        <h2 class="section-title">Stortrics replaces the wahala with clarity.</h2>
+      </div>
+
+      <div class="outcomes-grid">
+        <div class="outcome-card reveal">
+          <div class="outcome-icon stock">
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
+              <path d="M2 12l4-4 3 3 5-6" stroke="#1B7A6E" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="outcome-title">Track every item</div>
+          <div class="outcome-desc">Know exactly what's in stock — updated automatically with every sale.</div>
+        </div>
+
+        <div class="outcome-card reveal">
+          <div class="outcome-icon profit">
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
+              <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5"
+                stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="outcome-title">See real profit</div>
+          <div class="outcome-desc">Know how much you actually made today — real numbers, not guesswork.</div>
+        </div>
+
+        <div class="outcome-card reveal">
+          <div class="outcome-icon offline">
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8.5A5 5 0 018 4a5 5 0 015 4.5" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round"
+                fill="none" />
+              <path d="M5.5 11A3 3 0 018 9.5a3 3 0 012.5 1.5" stroke="#5B5FD9" stroke-width="1.3"
+                stroke-linecap="round" fill="none" />
+              <circle cx="8" cy="13.5" r="1" fill="#5B5FD9" />
+              <line x1="2" y1="2" x2="14" y2="14" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="outcome-title">Sell offline</div>
+          <div class="outcome-desc">Network down? No problem. Everything syncs when you're back online.</div>
+        </div>
+
+        <div class="outcome-card reveal">
+          <div class="outcome-icon security">
+            <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2L3 4.5V8c0 3 2.2 5.2 5 6 2.8-.8 5-3 5-6V4.5L8 2z" stroke="#F0A500" stroke-width="1.3"
+                fill="none" />
+              <path d="M5.5 8.5l1.8 1.8 3-3.5" stroke="#F0A500" stroke-width="1.3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="outcome-title">Control your team</div>
+          <div class="outcome-desc">Every sale is logged. Set who can sell, discount, or adjust stock.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FEATURES
+       ══════════════════════════════════════════ -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Everything you need to run your shop.</h2>
+        <p class="section-subtitle">
+          Stortrics gives you the tools that big supermarkets use — right on your phone, tablet, or laptop. Simple enough
+          for your sales boys, powerful enough for your growing business.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Point of Sale -->
+        <div class="feature-block reveal">
+          <div class="feature-header">
+            <div class="feature-icon-wrap pos">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="2" width="12" height="12" rx="2" stroke="#E8653A" stroke-width="1.2" fill="none" />
+                <path d="M5 8h6M5 5.5h4M5 10.5h3" stroke="#E8653A" stroke-width="1.1" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Point of Sale</h3>
+          </div>
+          <p class="feature-desc">Built for speed in busy markets — process sales in 40 seconds flat.</p>
+          <ul class="feature-list">
+            <li>Barcode scanning — point your phone at the box and it adds to the bill instantly</li>
+            <li>Product search — type "Tecno Camon" or "Oraimo" and find it in seconds</li>
+            <li>Easy cart — add/remove items, adjust quantities, see total in real-time</li>
+            <li>Multiple payments — cash, bank transfer, POS card, USSD, split payment</li>
+            <li>Receipt printing — Bluetooth thermal printer or share via WhatsApp</li>
+            <li>Mix services and products in a single sale — one cart, one receipt</li>
+          </ul>
+          <div class="feature-screenshots">
+            <img src="./images/pos-mobile.png" alt="POS product selection on mobile" loading="lazy">
+            <img src="./images/pos_and_cart-mobile.png" alt="POS cart and checkout" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Inventory Management -->
+        <div class="feature-block reveal">
+          <div class="feature-header">
+            <div class="feature-icon-wrap inventory">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
+                <path d="M2 12l4-4 3 3 5-6" stroke="#1B7A6E" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Inventory Management</h3>
+          </div>
+          <p class="feature-desc">Complete stock control for hundreds of products and accessories.</p>
+          <ul class="feature-list">
+            <li>Product catalog — add items with barcodes, images, cost price, and selling price</li>
+            <li>Automatic stock updates — every sale deducts stock instantly, no manual counting</li>
+            <li>Low-stock alerts — get notified when power banks or fast chargers run low</li>
+            <li>Stock adjustments — record deliveries, damages, or corrections with full audit trail</li>
+            <li>Categories — organize by Phones, Laptops, Power Banks, Earbuds, Accessories, Services</li>
+          </ul>
+          <div class="feature-screenshots">
+            <img src="./images/inventory-mobile.png" alt="Inventory dashboard on mobile" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Sales Reports & Analytics -->
+        <div class="feature-block reveal">
+          <div class="feature-header">
+            <div class="feature-icon-wrap reports">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Sales Reports & Analytics</h3>
+          </div>
+          <p class="feature-desc">Know how your business is doing — anytime, anywhere.</p>
+          <ul class="feature-list">
+            <li>Daily sales summary — today's revenue, transaction count, top products</li>
+            <li>Profit analysis — see exactly how much profit each item gives you</li>
+            <li>Top sellers — know which products move fastest</li>
+            <li>Date range reports — compare this week to last week, this month to last month</li>
+            <li>Export to PDF — share reports via WhatsApp</li>
+            <li>Email reports — daily revenue, profit, and top performers sent to your inbox</li>
+          </ul>
+          <div class="profit-examples">
+            <strong>Example Profit Breakdown:</strong><br>
+            Tecno Camon 30: Cost ₦150K → Sell ₦180K = <strong>₦30K profit (20%)</strong><br>
+            Oraimo FreePods: Cost ₦7K → Sell ₦12K = <strong>₦5K profit (71%)</strong><br>
+            Fast charging cable: Cost ₦1.5K → Sell ₦3.5K = <strong>₦2K profit (133%)</strong><br>
+            Phone case + glass: Cost ₦800 → Sell ₦2.5K = <strong>₦1.7K profit (212%)</strong>
+          </div>
+          <div class="feature-screenshots" style="margin-top:16px;">
+            <img src="./images/analytics-mobile.png" alt="Analytics dashboard on mobile" loading="lazy">
+            <img src="./images/transaction_history-mobile.png" alt="Transaction history" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Staff Management & Security -->
+        <div class="feature-block reveal">
+          <div class="feature-header">
+            <div class="feature-icon-wrap staff">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2L3 4.5V8c0 3 2.2 5.2 5 6 2.8-.8 5-3 5-6V4.5L8 2z" stroke="#F0A500" stroke-width="1.3"
+                  fill="none" />
+                <path d="M5.5 8.5l1.8 1.8 3-3.5" stroke="#F0A500" stroke-width="1.3" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3>Staff Management & Security</h3>
+          </div>
+          <p class="feature-desc">Protect your business with bank-level security and full accountability.</p>
+          <ul class="feature-list">
+            <li>Multiple staff accounts — each sales boy and manager gets their own login</li>
+            <li>Role-based permissions — sales boys sell, managers adjust stock, only you see everything</li>
+            <li>PIN login — secure, easy, fast</li>
+            <li>Permanent audit trail — every action recorded (who, what, when) — cannot be deleted</li>
+            <li>Smart price protection — prevents selling below cost price, even by mistake</li>
+          </ul>
+          <table class="permissions-table">
+            <tr>
+              <th>Role</th>
+              <th>Can Sell</th>
+              <th>Discounts</th>
+              <th>Returns</th>
+              <th>Reports</th>
+            </tr>
+            <tr>
+              <td>Owner</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Manager</td>
+              <td>✓</td>
+              <td>✓ limited</td>
+              <td>✓</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td>Sales Attendant</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+            </tr>
+          </table>
+          <div class="feature-screenshots" style="margin-top:16px;">
+            <img src="./images/user_management-mobile.png" alt="User management" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop screenshots row -->
+      <div class="reveal" style="margin-top: 32px; text-align: center;">
+        <p style="font-size: 14px; color: var(--text-light); margin-bottom: 16px; font-weight: 500;">Desktop views —
+          Stortrics adapts to any screen size</p>
+        <div style="display: flex; gap: 16px; overflow-x: auto; justify-content: center; flex-wrap: wrap;">
+          <img src="./images/pos_and_cart-desktop.png" alt="Desktop POS interface"
+            style="max-width: 320px; width: 100%; border-radius: 8px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);"
+            loading="lazy">
+          <img src="./images/inventory-desktop.png" alt="Desktop inventory"
+            style="max-width: 320px; width: 100%; border-radius: 8px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);"
+            loading="lazy">
+          <img src="./images/analytics-desktop.png" alt="Desktop analytics"
+            style="max-width: 320px; width: 100%; border-radius: 8px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);"
+            loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       BUSINESS TYPES
+       ══════════════════════════════════════════ -->
+  <section class="business-section reveal" id="business-types">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Built For You</div>
+        <h2 class="section-title">One app. Any business.</h2>
+        <p class="section-subtitle">
+          Whether you sell products, offer services, or both — Stortrics keeps everything in one place. No spreadsheets.
+          No guesswork. Just your business, running smoothly.
+        </p>
+      </div>
+
+      <div class="business-grid">
+        <div class="business-card reveal">
+          <div class="business-icon service">
+            <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="5.5" r="2.5" stroke="#5B5FD9" stroke-width="1.2" fill="none" />
+              <path d="M3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#5B5FD9" stroke-width="1.2" stroke-linecap="round"
+                fill="none" />
+            </svg>
+          </div>
+          <h3>Service-Oriented</h3>
+          <p>Salons, laundry shops, car washes, repair centres — track bookings and payments without inventory overhead.
+          </p>
+        </div>
+
+        <div class="business-card reveal">
+          <div class="business-icon product">
+            <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="7" width="12" height="7.5" rx="1" stroke="#1B7A6E" stroke-width="1.2" fill="none" />
+              <path d="M5 7V5a3 3 0 016 0v2" stroke="#1B7A6E" stroke-width="1.2" stroke-linecap="round"
+                fill="none" />
+            </svg>
+          </div>
+          <h3>Product-Oriented</h3>
+          <p>Pharmacies, supermarkets, gadget stores, provision shops — full inventory tracking with every sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       COMPARISON
+       ══════════════════════════════════════════ -->
+  <section class="compare-section reveal" id="compare">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The Difference</div>
+        <h2 class="section-title">What Stortrics replaces.</h2>
+        <p class="section-subtitle">
+          You've been managing your business with tools that weren't built for it. Here's what changes.
+        </p>
+      </div>
+
+      <div class="compare-grid">
+        <div class="compare-card before">
+          <h3>Your current setup</h3>
+          <div class="compare-item"><span class="compare-x">✗</span> Exercise books for stock counting</div>
+          <div class="compare-item"><span class="compare-x">✗</span> WhatsApp for sales updates</div>
+          <div class="compare-item"><span class="compare-x">✗</span> Manual counting every morning — 30+ minutes</div>
+          <div class="compare-item"><span class="compare-x">✗</span> "Let me check and get back to you"</div>
+          <div class="compare-item"><span class="compare-x">✗</span> Monthly reconciliation that never adds up</div>
+          <div class="compare-item"><span class="compare-x">✗</span> No way to know if staff gave unauthorized
+            discounts</div>
+        </div>
+
+        <div class="compare-card after">
+          <h3>With Stortrics</h3>
+          <div class="compare-item"><span class="compare-check">✓</span> One live system — always accurate</div>
+          <div class="compare-item"><span class="compare-check">✓</span> Real-time stock visibility across branches
+          </div>
+          <div class="compare-item"><span class="compare-check">✓</span> Automatic updates — no morning counting</div>
+          <div class="compare-item"><span class="compare-check">✓</span> Instant answers from your dashboard</div>
+          <div class="compare-item"><span class="compare-check">✓</span> Every sale and return permanently recorded
+          </div>
+          <div class="compare-item"><span class="compare-check">✓</span> Clear accountability — who did what, when
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       HOW IT WORKS
+       ══════════════════════════════════════════ -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Getting Started</div>
+        <h2 class="section-title">You don't need to change everything at once.</h2>
+        <p class="section-subtitle">
+          Start small, grow from there. Stortrics works the moment you set it up — no training needed.
+        </p>
+      </div>
+
+      <div class="how-steps">
+        <div class="how-step reveal">
+          <div class="step-number">1</div>
+          <h3>Set up your shop</h3>
+          <p>Download the app, create your account, and add your first location. Takes less than 5 minutes.</p>
+        </div>
+
+        <div class="how-step reveal">
+          <div class="step-number">2</div>
+          <h3>Add your products</h3>
+          <p>Scan barcodes or type product names. Add cost prices, selling prices, and set low-stock alerts.</p>
+        </div>
+
+        <div class="how-step reveal">
+          <div class="step-number">3</div>
+          <h3>Start selling</h3>
+          <p>Process sales, track stock, and see your profit — all from day one. Everything works offline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       USER STORY
+       ══════════════════════════════════════════ -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Real Story</div>
+        <h2 class="section-title">A day at Oga Emeka's Gadget World.</h2>
+        <p class="section-subtitle">
+          See how a busy tech gadget store at Computer Village, Enugu uses Stortrics to protect stock, catch fraud, and
+          know exactly where every naira goes.
+        </p>
+      </div>
+
+      <div class="story-card reveal">
+        <div class="story-header">
+          <h3>Oga Emeka runs a busy gadget store with 3 sales boys and a manager.</h3>
+          <p>He stocks everything from Tecno Camon 30 and Infinix Note 40 smartphones to HP laptops, Oraimo power banks,
+            FreePods earbuds, and hundreds of accessories. Before Stortrics, he used exercise books and relied on trust —
+            until he noticed phones going missing and profits not matching sales.</p>
+        </div>
+        <div class="story-body">
+          <div class="story-moment">
+            <span class="story-time">8:00 AM</span>
+            <div>
+              <h4>Morning stock check — zero counting</h4>
+              <p>Opens Stortrics on his tablet. Sees Oraimo power banks are running low (5 left), calls his Lagos
+                supplier before the weekend rush. No more 30-minute morning counts — the app already knows what's in
+                stock from yesterday's sales.</p>
+            </div>
+          </div>
+
+          <div class="story-moment">
+            <span class="story-time">10:30 AM</span>
+            <div>
+              <h4>Peak hours — fast checkout</h4>
+              <p>Customer buys an Infinix Note 40 (₦195,000) and Oraimo FreePods (₦12,000). Barcode scan, bank transfer
+                reference, receipt printed. Total time: 40 seconds. Stock updates automatically — Infinix drops from 12
+                to 11 units.</p>
+            </div>
+          </div>
+
+          <div class="story-moment">
+            <span class="story-time">1:00 PM</span>
+            <div>
+              <h4>Catching fraud red-handed</h4>
+              <p>Notices a power bank count mismatch — 5 in the system, 4 on the shelf. Opens the audit log: his sales
+                boy sold one at 4:45 PM yesterday, then processed a fake "return" 7 minutes later to pocket the cash.
+                With exercise books, this scheme would be invisible.</p>
+              <p class="story-impact">💡 This scheme was costing ₦150,000/month. The permanent audit trail caught it
+                immediately.</p>
+            </div>
+          </div>
+
+          <div class="story-moment">
+            <span class="story-time">3:30 PM</span>
+            <div>
+              <h4>Bulk order — protected margins</h4>
+              <p>A businessman wants 5 Lenovo laptops (₦380K each). Asks for a discount. The sales boy can't give one —
+                the app won't allow it for his role. Oga Emeka logs in, adjusts to ₦360K/unit (still ₦40K profit each),
+                approves. The audit log records every price change.</p>
+            </div>
+          </div>
+
+          <div class="story-moment">
+            <span class="story-time">8:00 PM</span>
+            <div>
+              <h4>End-of-day clarity</h4>
+              <p>Today's summary: ₦2,850,000 in sales across 47 transactions. Total profit: ₦485,000. He taps "Export
+                PDF" and WhatsApps it to his brother who handles the books. No staying late to count cash and tally
+                receipts.</p>
+              <p class="story-impact">💡 "We did ₦2.85M today, ₦485K profit." Real numbers, not guesswork.</p>
+            </div>
+          </div>
+
+          <div class="story-moment">
+            <span class="story-time">10:00 PM</span>
+            <div>
+              <h4>Automatic backup at home</h4>
+              <p>At home, Stortrics silently backs up the day's data over WiFi: 47 transactions, 15 stock adjustments, 2
+                price overrides. He checks tomorrow's alerts — Oraimo FreePods at 15 units, reorder by Thursday.
+                Everything is backed up. Nothing is lost.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA SECTION
+       ══════════════════════════════════════════ -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <h2 class="reveal">Start selling smarter today.</h2>
+      <p class="cta-desc reveal">
+        Join Nigerian retailers who have ditched exercise books for good.<br>
+        Works on Android, Windows, tablets & phones.
+      </p>
+      <a href="mailto:stortrics@gmail.com?subject=I%20want%20to%20get%20started%20with%20Stortrics" class="btn-primary reveal">Get
+        Started Free →</a>
+
+      <div class="cta-contacts reveal">
+        <div class="cta-contact-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"
+              fill="none" />
+            <path d="M1.5 6l6.5 4 6.5-4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
+          </svg>
+          <a href="mailto:stortrics@gmail.com">stortrics@gmail.com</a>
+        </div>
+        <div class="cta-contact-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M4 2h2.5l1 3-1.5 1.5a8 8 0 003.5 3.5L11 8.5l3 1V12a1.5 1.5 0 01-1.5 1.5C6 13.5 2.5 10 2.5 3.5A1.5 1.5 0 014 2z"
+              stroke="currentColor" stroke-width="1.1" fill="none" />
+          </svg>
+          <a href="tel:09077404771">09077404771</a>
+        </div>
+      </div>
+      <p class="cta-platforms reveal">Point of Sale for Every Business</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Stortrics</div>
+      <ul class="footer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#story">Real Story</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Stortrics. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       JAVASCRIPT
+       ══════════════════════════════════════════ -->
+  <script>
+    // ── Mobile nav toggle ──
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ── Navbar scroll shadow ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── Scroll reveal ──
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
