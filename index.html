@@ -1489,7 +1489,16 @@
         padding: 0 20px;
       }
 
-      /* Nav mobile */
+      /* ── Utilities ── */
+      .section-subtitle {
+        max-width: 100%;
+      }
+
+      .section-label {
+        font-size: 13px;
+      }
+
+      /* ── Nav mobile ── */
       .nav-links {
         display: none;
         position: fixed;
@@ -1526,13 +1535,14 @@
       .nav-cta {
         justify-content: center;
         margin-top: 8px;
+        padding: 14px 22px;
       }
 
       .nav-toggle {
         display: block;
       }
 
-      /* Hero mobile */
+      /* ── Hero mobile ── */
       .hero {
         padding-top: 110px;
       }
@@ -1543,6 +1553,7 @@
 
       .hero-desc {
         font-size: 17px;
+        margin-bottom: 28px;
       }
 
       .hero-actions {
@@ -1554,13 +1565,28 @@
       .hero-actions .btn-whatsapp {
         justify-content: center;
         text-align: center;
+        width: 100%;
+        padding: 16px 24px;
       }
 
-      /* Stats mobile */
+      .hero-trust {
+        justify-content: center;
+        font-size: 14px;
+        margin-top: 4px;
+      }
+
+      .hero-screenshot-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+        bottom: -10px;
+        left: 16px;
+      }
+
+      /* ── Stats mobile ── */
       .stats-bar {
         flex-direction: column;
-        gap: 22px;
-        padding: 28px;
+        gap: 20px;
+        padding: 28px 24px;
       }
 
       .stat-divider {
@@ -1568,49 +1594,167 @@
         height: 1px;
       }
 
-      /* Problems mobile */
+      /* ── Problems mobile ── */
       .problems-grid {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 32px;
+        margin-top: 32px;
       }
 
-      /* Outcomes mobile */
+      .problems-questions h3,
+      .familiar-list h3 {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      .problem-question {
+        font-size: 16px;
+        gap: 12px;
+        padding: 12px 0;
+      }
+
+      .familiar-item {
+        font-size: 16px;
+        gap: 12px;
+        padding: 12px 0;
+      }
+
+      /* ── Outcomes mobile ── */
       .outcomes-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        gap: 14px;
+        margin-top: 32px;
       }
 
       .outcome-card {
-        padding: 24px 16px;
+        padding: 22px 14px;
       }
 
-      /* Business types mobile */
+      .outcome-title {
+        font-size: 16px;
+      }
+
+      .outcome-desc {
+        font-size: 15px;
+      }
+
+      /* ── Features mobile ── */
+      .features-section .section-header {
+        margin-bottom: 36px;
+      }
+
+      .feature-block {
+        padding: 24px 20px;
+      }
+
+      .feature-block h3 {
+        font-size: 18px;
+      }
+
+      .feature-desc {
+        font-size: 15px;
+      }
+
+      .feature-list li {
+        font-size: 15px;
+        padding: 6px 0;
+      }
+
+      .feature-mobile-row {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding-bottom: 6px;
+      }
+
+      .feature-mobile-row img {
+        max-width: 130px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+
+      /* Permissions table: horizontal scroll on small screens */
+      .permissions-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .permissions-table th {
+        font-size: 12px;
+        padding: 8px 10px;
+      }
+
+      .permissions-table td {
+        padding: 8px 10px;
+      }
+
+      /* Profit examples */
+      .profit-examples {
+        font-size: 14px;
+        padding: 14px 14px;
+        line-height: 1.8;
+        word-break: break-word;
+      }
+
+      /* ── Business types mobile ── */
       .business-grid {
         grid-template-columns: 1fr;
       }
 
-      /* Compare mobile */
+      .business-card {
+        padding: 28px 20px;
+      }
+
+      .business-card h3 {
+        font-size: 18px;
+      }
+
+      .business-tag {
+        font-size: 12px;
+        padding: 4px 10px;
+      }
+
+      /* ── Compare mobile ── */
       .compare-grid {
         grid-template-columns: 1fr;
       }
 
-      /* How it works mobile */
+      .compare-card {
+        padding: 28px 20px;
+      }
+
+      .compare-item {
+        font-size: 15px;
+        padding: 8px 0;
+      }
+
+      /* ── How it works mobile ── */
+      .how-section .section-header {
+        margin-bottom: 36px;
+      }
+
       .how-steps {
         grid-template-columns: 1fr;
         gap: 28px;
       }
 
-      /* Story mobile */
-      .story-moment {
-        flex-direction: column;
-        gap: 12px;
+      .how-step h3 {
+        font-size: 18px;
       }
 
-      .story-header, .story-body {
-        padding: 24px 20px;
+      .how-step p {
+        font-size: 15px;
       }
 
-      /* Demo mobile */
+      /* ── Demo mobile ── */
+      .demo-section .section-header {
+        margin-bottom: 32px;
+      }
+
       .demo-play-btn {
         width: 64px;
         height: 64px;
@@ -1620,33 +1764,141 @@
         font-size: 16px;
       }
 
-      /* CTA mobile */
+      .demo-play-sub {
+        font-size: 13px;
+      }
+
+      /* ── Story mobile ── */
+      .story-section .section-header {
+        margin-bottom: 32px;
+      }
+
+      .story-header {
+        padding: 24px 20px;
+      }
+
+      .story-header h3 {
+        font-size: 19px;
+      }
+
+      .story-header p {
+        font-size: 15px;
+      }
+
+      .story-body {
+        padding: 20px 20px;
+      }
+
+      .story-moment {
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px 0;
+      }
+
+      .story-moment h4 {
+        font-size: 16px;
+      }
+
+      .story-moment p {
+        font-size: 15px;
+      }
+
+      .story-impact {
+        font-size: 14px;
+      }
+
+      /* ── FAQ mobile ── */
+      .faq-section .section-header {
+        margin-bottom: 32px;
+      }
+
+      .faq-question {
+        font-size: 16px;
+        padding: 20px 0;
+        gap: 12px;
+        min-height: 56px;
+      }
+
+      .faq-answer-inner {
+        font-size: 15px;
+        padding-bottom: 18px;
+      }
+
+      /* ── CTA mobile ── */
+      .cta-section {
+        padding: var(--section-pad) 0;
+      }
+
       .cta-section h2 {
-        font-size: 28px;
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      .cta-section .cta-desc {
+        font-size: 16px;
+        margin-bottom: 28px;
       }
 
       .cta-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
       }
 
-      /* Footer mobile */
+      .cta-buttons .btn-primary,
+      .cta-buttons .btn-whatsapp {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 16px 24px;
+      }
+
+      .cta-section .btn-primary {
+        font-size: 17px !important;
+        padding: 16px 24px !important;
+      }
+
+      .cta-contacts {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+        margin-top: 24px;
+      }
+
+      .cta-contact-item {
+        font-size: 15px;
+      }
+
+      .cta-platforms {
+        font-size: 13px;
+        margin-top: 18px;
+      }
+
+      /* ── Footer mobile ── */
+      .footer {
+        padding: 28px 0;
+      }
+
       .footer-inner {
         flex-direction: column;
         text-align: center;
+        gap: 14px;
       }
 
       .footer-links {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 18px;
       }
 
-      /* Feature screenshots mobile */
-      .feature-mobile-row img {
-        max-width: 120px;
+      .footer-links a {
+        font-size: 14px;
       }
 
-      /* WhatsApp float mobile */
+      .footer-copy {
+        font-size: 13px;
+      }
+
+      /* ── WhatsApp float mobile ── */
       .whatsapp-float {
         bottom: 20px;
         right: 20px;
@@ -1659,25 +1911,177 @@
       }
     }
 
+    /* ── Extra-small: 480px and below ── */
     @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding-top: 100px;
+      }
+
       .hero h1 {
-        font-size: 25px;
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .hero-desc {
+        font-size: 16px;
       }
 
       .section-title {
-        font-size: 26px;
+        font-size: 23px;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
       }
 
       .outcomes-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .outcome-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+        padding: 18px 16px;
+      }
+
+      .outcome-icon {
+        margin-bottom: 0;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+      }
+
+      .outcome-title {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .outcome-desc {
+        font-size: 14px;
       }
 
       .stat-value {
         font-size: 26px;
       }
 
+      .stats-bar {
+        padding: 24px 20px;
+        gap: 16px;
+      }
+
+      .feature-block {
+        padding: 20px 16px;
+      }
+
+      .feature-block h3 {
+        font-size: 17px;
+      }
+
+      .feature-header {
+        gap: 10px;
+      }
+
+      .feature-icon-wrap {
+        width: 40px;
+        height: 40px;
+      }
+
+      .feature-mobile-row img {
+        max-width: 110px;
+      }
+
+      .compare-card {
+        padding: 22px 16px;
+      }
+
+      .compare-card h3 {
+        font-size: 16px;
+        margin-bottom: 18px;
+      }
+
+      .compare-item {
+        font-size: 14px;
+        gap: 10px;
+      }
+
+      .how-step p {
+        font-size: 14px;
+      }
+
+      .story-header h3 {
+        font-size: 17px;
+      }
+
+      .story-header p {
+        font-size: 14px;
+      }
+
+      .story-moment h4 {
+        font-size: 15px;
+      }
+
+      .story-moment p {
+        font-size: 14px;
+      }
+
+      .story-time {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .faq-question {
+        font-size: 15px;
+      }
+
+      .faq-answer-inner {
+        font-size: 14px;
+      }
+
       .cta-section h2 {
-        font-size: 24px;
+        font-size: 23px;
+      }
+
+      .cta-section .cta-desc {
+        font-size: 15px;
+      }
+
+      .demo-play-btn {
+        width: 56px;
+        height: 56px;
+      }
+
+      .demo-play-text {
+        font-size: 15px;
+      }
+
+      .demo-play-sub {
+        font-size: 12px;
+      }
+
+      .business-card {
+        padding: 24px 16px;
+      }
+
+      .profit-examples {
+        font-size: 13px;
+        padding: 12px 12px;
+      }
+
+      .permissions-table th {
+        font-size: 11px;
+        padding: 6px 8px;
+      }
+
+      .permissions-table td {
+        font-size: 12px;
+        padding: 6px 8px;
       }
     }
   </style>
