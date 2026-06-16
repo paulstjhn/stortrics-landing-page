@@ -698,30 +698,60 @@
       transform: scale(1.02);
     }
 
-    .feature-mobile-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 12px;
+    /* ============================================
+       SCREENSHOT GALLERY
+       ============================================ */
+    .gallery-section {
+      padding: var(--section-pad) 0;
     }
 
-    .feature-mobile-row img {
-      max-width: 140px;
+    .gallery-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-section .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .gallery-track {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
       width: 100%;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
-      opacity: 0.85;
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      max-width: 240px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .feature-mobile-row img:hover {
-      opacity: 1;
-      transform: scale(1.03);
+    .gallery-item img:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
-    .feature-mobile-label {
-      font-size: 13px;
+    .gallery-caption {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .gallery-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 15px;
       color: var(--text-light);
-      margin-top: 8px;
       font-style: italic;
     }
 
@@ -1532,9 +1562,11 @@
         border-bottom: none;
       }
 
-      .nav-cta {
+      .nav-links .nav-cta {
+        display: flex;
         justify-content: center;
-        margin-top: 8px;
+        align-items: center;
+        margin-top: 12px;
         padding: 14px 22px;
       }
 
@@ -1660,20 +1692,6 @@
         padding: 6px 0;
       }
 
-      .feature-mobile-row {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        gap: 10px;
-        padding-bottom: 6px;
-      }
-
-      .feature-mobile-row img {
-        max-width: 130px;
-        flex-shrink: 0;
-        scroll-snap-align: start;
-      }
-
       /* Permissions table: horizontal scroll on small screens */
       .permissions-table {
         display: block;
@@ -1698,6 +1716,42 @@
         padding: 14px 14px;
         line-height: 1.8;
         word-break: break-word;
+      }
+
+      /* ── Gallery mobile ── */
+      .gallery-section .section-header {
+        margin-bottom: 32px;
+      }
+
+      .gallery-track {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 12px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .gallery-item {
+        flex: 0 0 160px;
+        scroll-snap-align: start;
+      }
+
+      .gallery-item img {
+        max-width: 100%;
+      }
+
+      .gallery-caption {
+        font-size: 13px;
+        margin-top: 8px;
+      }
+
+      .gallery-note {
+        font-size: 14px;
+        margin-top: 20px;
       }
 
       /* ── Business types mobile ── */
@@ -1991,10 +2045,6 @@
       .feature-icon-wrap {
         width: 40px;
         height: 40px;
-      }
-
-      .feature-mobile-row img {
-        max-width: 110px;
       }
 
       .compare-card {
@@ -2364,11 +2414,6 @@
           </ul>
           <div class="feature-screenshot-wrap">
             <img src="./images/pos_and_cart-desktop.png" alt="Desktop POS checkout interface" class="desktop-shot">
-            <div class="feature-mobile-row">
-              <img src="./images/pos-mobile.png" alt="POS on mobile" loading="lazy">
-              <img src="./images/pos_and_cart-mobile.png" alt="Cart on mobile" loading="lazy">
-            </div>
-            <div class="feature-mobile-label">Also available on mobile for on-the-go sales</div>
           </div>
         </div>
 
@@ -2393,10 +2438,6 @@
           </ul>
           <div class="feature-screenshot-wrap">
             <img src="./images/inventory-desktop.png" alt="Desktop inventory management" class="desktop-shot">
-            <div class="feature-mobile-row">
-              <img src="./images/inventory-mobile.png" alt="Inventory on mobile" loading="lazy">
-            </div>
-            <div class="feature-mobile-label">Check stock from anywhere on your phone</div>
           </div>
         </div>
 
@@ -2429,11 +2470,6 @@
           </div>
           <div class="feature-screenshot-wrap" style="margin-top:16px;">
             <img src="./images/analytics-desktop.png" alt="Desktop analytics dashboard" class="desktop-shot">
-            <div class="feature-mobile-row">
-              <img src="./images/analytics-mobile.png" alt="Analytics on mobile" loading="lazy">
-              <img src="./images/transaction_history-mobile.png" alt="Transaction history" loading="lazy">
-            </div>
-            <div class="feature-mobile-label">Review your numbers on the go</div>
           </div>
         </div>
 
@@ -2490,13 +2526,57 @@
           </table>
           <div class="feature-screenshot-wrap" style="margin-top:16px;">
             <img src="./images/user_managment-desktop.png" alt="Desktop staff management" class="desktop-shot">
-            <div class="feature-mobile-row">
-              <img src="./images/user_management-mobile.png" alt="User management on mobile" loading="lazy">
-            </div>
-            <div class="feature-mobile-label">Manage your team from any device</div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SCREENSHOT GALLERY — MOBILE APP
+       ══════════════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Also on Mobile</div>
+        <h2 class="section-title">Stortrics goes wherever you go.</h2>
+        <p class="section-subtitle">
+          Run your shop from your desktop. Check on things from your phone. Every feature works across all your devices — and syncs automatically.
+        </p>
+      </div>
+
+      <div class="gallery-track reveal">
+        <div class="gallery-item">
+          <img src="./images/pos-mobile.png" alt="Point of Sale on mobile" loading="lazy">
+          <div class="gallery-caption">Point of Sale</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/pos_and_cart-mobile.png" alt="Cart view on mobile" loading="lazy">
+          <div class="gallery-caption">Cart & Checkout</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/inventory-mobile.png" alt="Inventory on mobile" loading="lazy">
+          <div class="gallery-caption">Inventory</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/analytics-mobile.png" alt="Analytics dashboard on mobile" loading="lazy">
+          <div class="gallery-caption">Sales Analytics</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/transaction_history-mobile.png" alt="Transaction history on mobile" loading="lazy">
+          <div class="gallery-caption">Transaction History</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/transaction_details-mobile.png" alt="Transaction details on mobile" loading="lazy">
+          <div class="gallery-caption">Transaction Details</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./images/user_management-mobile.png" alt="Team management on mobile" loading="lazy">
+          <div class="gallery-caption">Team Management</div>
+        </div>
+      </div>
+
+      <p class="gallery-note reveal">All screens sync in real-time. Start on desktop, continue on your phone.</p>
     </div>
   </section>
 
