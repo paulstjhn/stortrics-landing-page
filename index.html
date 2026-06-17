@@ -12,2129 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <style>
-    /* ============================================
-       DESIGN SYSTEM
-       ============================================ */
-    :root {
-      --primary: #E8653A;
-      --primary-dark: #C24E28;
-      --primary-light: #FFF0EB;
-      --accent: #1B7A6E;
-      --accent-light: #2BA396;
-      --accent-bg: #EBF7F5;
-      --bg-cream: #FDFAF7;
-      --bg-light: #F8F7F5;
-      --bg-white: #FFFFFF;
-      --text-dark: #1A1A2E;
-      --text-body: #3A3A4E;
-      --text-muted: #5A5A72;
-      --text-light: #8A8A9E;
-      --text-on-primary: #FFFFFF;
-      --border-light: #EEEAE6;
-      --border-card: #E8E4E0;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
-      --shadow-lg: 0 12px 32px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --font-heading: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-      --font-body: 'Inter', 'Segoe UI', sans-serif;
-      --max-width: 1140px;
-      --section-pad: 88px;
-      --whatsapp-green: #25D366;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      font-family: var(--font-body);
-      font-size: 18px;
-      line-height: 1.7;
-      color: var(--text-body);
-      background: var(--bg-cream);
-    }
-
-    /* ============================================
-       UTILITIES
-       ============================================ */
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .section-label {
-      font-family: var(--font-heading);
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--primary);
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
-
-    .section-subtitle {
-      font-size: 19px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 640px;
-    }
-
-    /* Scroll animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================================
-       NAVIGATION
-       ============================================ */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(253, 250, 247, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      box-shadow: var(--shadow-sm);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .nav-brand svg {
-      flex-shrink: 0;
-    }
-
-    .nav-brand-name {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 22px;
-      color: var(--text-dark);
-      letter-spacing: 0.3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-dark);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-heading);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-on-primary) !important;
-      background: var(--primary);
-      padding: 11px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.15s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    /* Hamburger */
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2.5px;
-      background: var(--text-dark);
-      margin: 5px 0;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* ============================================
-       HERO
-       ============================================ */
-    .hero {
-      padding: 130px 0 var(--section-pad);
-      background: var(--bg-cream);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-content {
-      max-width: 560px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--text-dark);
-      line-height: 1.15;
-      margin-bottom: 22px;
-      letter-spacing: -0.5px;
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    .hero-desc {
-      font-size: 19px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 36px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-heading);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-on-primary);
-      background: var(--primary);
-      padding: 15px 30px;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 14px rgba(232, 101, 58, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(232, 101, 58, 0.35);
-    }
-
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-dark);
-      background: var(--bg-white);
-      border: 1.5px solid var(--border-card);
-      padding: 14px 24px;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-whatsapp:hover {
-      border-color: var(--whatsapp-green);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
-    }
-
-    .btn-whatsapp svg {
-      flex-shrink: 0;
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-heading);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 14px 8px;
-      transition: color 0.2s ease;
-    }
-
-    .btn-secondary:hover {
-      color: var(--text-dark);
-    }
-
-    .hero-trust {
-      font-size: 15px;
-      color: var(--text-light);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .hero-trust span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .hero-trust span::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .hero-trust span:first-child::before {
-      display: none;
-    }
-
-    .hero-screenshot {
-      position: relative;
-    }
-
-    .hero-screenshot img {
-      width: 100%;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-screenshot-badge {
-      position: absolute;
-      bottom: -14px;
-      left: 24px;
-      background: var(--accent);
-      color: var(--text-on-primary);
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* ============================================
-       STATS BAR
-       ============================================ */
-    .stats-section {
-      padding: 0 0 var(--section-pad);
-    }
-
-    .stats-bar {
-      background: var(--accent);
-      border-radius: var(--radius-lg);
-      padding: 32px 48px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0 8px 24px rgba(27, 122, 110, 0.2);
-    }
-
-    .stat-item {
-      text-align: center;
-      color: var(--text-on-primary);
-    }
-
-    .stat-value {
-      font-family: var(--font-heading);
-      font-size: 30px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      font-weight: 500;
-      opacity: 0.85;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-divider {
-      width: 1px;
-      height: 44px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    /* ============================================
-       PROBLEM SECTION
-       ============================================ */
-    .problems-section {
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
-    }
-
-    .problems-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      margin-top: 48px;
-      align-items: start;
-    }
-
-    .problems-questions h3 {
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 24px;
-    }
-
-    .problem-question {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 17px;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    .problem-question:last-child {
-      border-bottom: none;
-    }
-
-    .pq-icon {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      margin-top: 2px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .familiar-list h3 {
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 24px;
-    }
-
-    .familiar-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      font-size: 17px;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    .familiar-dot {
-      flex-shrink: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--primary);
-      margin-top: 8px;
-    }
-
-    /* ============================================
-       OUTCOMES ROW
-       ============================================ */
-    .outcomes-section {
-      padding: var(--section-pad) 0;
-    }
-
-    .outcomes-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 44px;
-    }
-
-    .outcome-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 32px 24px;
-      text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .outcome-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .outcome-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: var(--radius-md);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-
-    .outcome-icon.stock { background: #EBF7F5; }
-    .outcome-icon.profit { background: #F0FBE6; }
-    .outcome-icon.offline { background: #EEF0FF; }
-    .outcome-icon.security { background: #FFF5E6; }
-
-    .outcome-title {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-
-    .outcome-desc {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ============================================
-       FEATURES SECTION
-       ============================================ */
-    .features-section {
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
-    }
-
-    .features-section .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .features-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .feature-block {
-      background: var(--bg-white);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 36px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .feature-block:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .feature-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .feature-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .feature-icon-wrap.pos { background: #FFF0EB; }
-    .feature-icon-wrap.inventory { background: #EBF7F5; }
-    .feature-icon-wrap.reports { background: #F0FBE6; }
-    .feature-icon-wrap.staff { background: #FFF5E6; }
-    .feature-icon-wrap.checkout { background: #EEF0FF; }
-    .feature-icon-wrap.email { background: #F5EEFF; }
-
-    .feature-block h3 {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-
-    .feature-desc {
-      font-size: 16px;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-      line-height: 1.6;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-bottom: 20px;
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 7px 0;
-      font-size: 16px;
-      color: var(--text-body);
-      line-height: 1.6;
-    }
-
-    .feature-list li::before {
-      content: '✓';
-      flex-shrink: 0;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 16px;
-      margin-top: 2px;
-    }
-
-    .feature-screenshot-wrap {
-      margin-top: 20px;
-    }
-
-    .feature-screenshot-wrap img.desktop-shot {
-      width: 100%;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease;
-    }
-
-    .feature-screenshot-wrap img.desktop-shot:hover {
-      transform: scale(1.02);
-    }
-
-    /* ============================================
-       SCREENSHOT GALLERY
-       ============================================ */
-    .gallery-section {
-      padding: var(--section-pad) 0;
-    }
-
-    .gallery-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .gallery-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .gallery-track {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      text-align: center;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      max-width: 240px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .gallery-item img:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .gallery-caption {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      font-weight: 500;
-    }
-
-    .gallery-note {
-      text-align: center;
-      margin-top: 32px;
-      font-size: 15px;
-      color: var(--text-light);
-      font-style: italic;
-    }
-
-    /* ============================================
-       BUSINESS TYPES
-       ============================================ */
-    .business-section {
-      padding: var(--section-pad) 0;
-    }
-
-    .business-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .business-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .business-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .business-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .business-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .business-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: var(--radius-md);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-
-    .business-icon.service { background: #EEF0FF; }
-    .business-icon.product { background: #EBF7F5; }
-
-    .business-card h3 {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-
-    .business-card p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .business-examples {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 14px;
-    }
-
-    .business-tag {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      background: var(--bg-light);
-      padding: 5px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--border-light);
-    }
-
-    /* ============================================
-       COMPARISON / BEFORE-AFTER
-       ============================================ */
-    .compare-section {
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
-    }
-
-    .compare-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .compare-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .compare-card {
-      border-radius: var(--radius-lg);
-      padding: 36px;
-    }
-
-    .compare-card.before {
-      background: var(--bg-white);
-      border: 1px solid var(--border-card);
-    }
-
-    .compare-card.after {
-      background: var(--text-dark);
-      color: var(--text-on-primary);
-    }
-
-    .compare-card h3 {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .compare-card.before h3 {
-      color: var(--text-muted);
-    }
-
-    .compare-card.after h3 {
-      color: var(--primary);
-    }
-
-    .compare-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .compare-x {
-      flex-shrink: 0;
-      color: #D44;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .compare-check {
-      flex-shrink: 0;
-      color: var(--accent-light);
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .compare-card.after .compare-item {
-      color: rgba(255,255,255,0.88);
-    }
-
-    /* ============================================
-       HOW IT WORKS
-       ============================================ */
-    .how-section {
-      padding: var(--section-pad) 0;
-    }
-
-    .how-section .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .how-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-
-    .how-step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: var(--text-on-primary);
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-    }
-
-    .how-step h3 {
-      font-family: var(--font-heading);
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-
-    .how-step p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .how-step:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 26px;
-      right: -18px;
-      width: 36px;
-      height: 2px;
-      background: var(--border-card);
-    }
-
-    .how-cta {
-      text-align: center;
-      margin-top: 44px;
-    }
-
-    /* ============================================
-       DEMO VIDEO
-       ============================================ */
-    .demo-section {
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
-    }
-
-    .demo-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .demo-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .demo-wrapper {
-      max-width: 820px;
-      margin: 0 auto;
-      position: relative;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      background: var(--text-dark);
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .demo-wrapper:hover {
-      transform: scale(1.01);
-    }
-
-    .demo-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.5;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .demo-play-overlay {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .demo-play-btn {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--primary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 28px rgba(232, 101, 58, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-bottom: 16px;
-    }
-
-    .demo-wrapper:hover .demo-play-btn {
-      transform: scale(1.1);
-      box-shadow: 0 12px 36px rgba(232, 101, 58, 0.5);
-    }
-
-    .demo-play-text {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-on-primary);
-      display: block;
-    }
-
-    .demo-play-sub {
-      font-size: 15px;
-      color: rgba(255,255,255,0.7);
-      margin-top: 4px;
-      display: block;
-    }
-
-    /* ============================================
-       USER STORY
-       ============================================ */
-    .story-section {
-      padding: var(--section-pad) 0;
-    }
-
-    .story-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .story-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .story-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      max-width: 860px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .story-header {
-      background: linear-gradient(135deg, var(--text-dark) 0%, #2A2A42 100%);
-      color: var(--text-on-primary);
-      padding: 32px 40px;
-    }
-
-    .story-header h3 {
-      font-family: var(--font-heading);
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .story-header p {
-      font-size: 16px;
-      opacity: 0.85;
-      line-height: 1.6;
-    }
-
-    .story-body {
-      padding: 36px 40px;
-    }
-
-    .story-moment {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .story-moment:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .story-time {
-      flex-shrink: 0;
-      font-family: var(--font-heading);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--primary);
-      background: var(--primary-light);
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-
-    .story-moment h4 {
-      font-family: var(--font-heading);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-
-    .story-moment p {
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .story-impact {
-      margin-top: 12px;
-      font-size: 15px;
-      color: var(--accent);
-      font-weight: 600;
-      font-style: italic;
-    }
-
-    /* ============================================
-       PERMISSIONS TABLE
-       ============================================ */
-    .permissions-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 15px;
-      margin-top: 14px;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-    }
-
-    .permissions-table th {
-      background: var(--text-dark);
-      color: var(--text-on-primary);
-      padding: 10px 12px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .permissions-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .permissions-table tr:nth-child(even) {
-      background: var(--bg-light);
-    }
-
-    /* ============================================
-       PROFIT TABLE
-       ============================================ */
-    .profit-examples {
-      background: var(--accent-bg);
-      border: 1px solid rgba(27, 122, 110, 0.15);
-      border-radius: var(--radius-sm);
-      padding: 16px 18px;
-      margin-top: 14px;
-      font-size: 15px;
-      line-height: 1.9;
-    }
-
-    .profit-examples strong {
-      color: var(--accent);
-    }
-
-    /* ============================================
-       FAQ SECTION
-       ============================================ */
-    .faq-section {
-      padding: var(--section-pad) 0;
-      background: var(--bg-light);
-    }
-
-    .faq-section .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .faq-section .section-subtitle {
-      margin: 0 auto;
-    }
-
-    .faq-list {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 22px 0;
-      font-family: var(--font-heading);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-dark);
-      text-align: left;
-      transition: color 0.2s ease;
-    }
-
-    .faq-question:hover {
-      color: var(--primary);
-    }
-
-    .faq-chevron {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.open .faq-chevron {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-    }
-
-    .faq-answer-inner {
-      padding: 0 0 22px;
-      font-size: 16px;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* ============================================
-       CTA SECTION
-       ============================================ */
-    .cta-section {
-      padding: var(--section-pad) 0;
-      background: var(--text-dark);
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-family: var(--font-heading);
-      font-size: 38px;
-      font-weight: 800;
-      color: var(--text-on-primary);
-      margin-bottom: 14px;
-    }
-
-    .cta-section .cta-desc {
-      font-size: 19px;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .cta-section .btn-primary {
-      font-size: 18px;
-      padding: 17px 36px;
-    }
-
-    .cta-section .btn-whatsapp {
-      background: transparent;
-      border-color: rgba(255,255,255,0.3);
-      color: var(--text-on-primary);
-    }
-
-    .cta-section .btn-whatsapp:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: var(--whatsapp-green);
-    }
-
-    .cta-contacts {
-      display: flex;
-      justify-content: center;
-      gap: 36px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-    }
-
-    .cta-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .cta-contact-item a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .cta-contact-item a:hover {
-      color: var(--primary);
-    }
-
-    .cta-platforms {
-      font-size: 15px;
-      color: rgba(255,255,255,0.4);
-      margin-top: 24px;
-    }
-
-    /* ============================================
-       FLOATING WHATSAPP
-       ============================================ */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 999;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--whatsapp-green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
-    }
-
-    .whatsapp-float .tooltip {
-      position: absolute;
-      right: 72px;
-      background: var(--text-dark);
-      color: var(--text-on-primary);
-      font-family: var(--font-heading);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: var(--radius-sm);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .whatsapp-float:hover .tooltip {
-      opacity: 1;
-    }
-
-    /* ============================================
-       FOOTER
-       ============================================ */
-    .footer {
-      background: #141424;
-      padding: 36px 0;
-      text-align: center;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-brand {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .footer-copy {
-      font-size: 14px;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 15px;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* ============================================
-       RESPONSIVE
-       ============================================ */
-    @media (max-width: 1024px) {
-      :root {
-        --section-pad: 64px;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .hero-screenshot {
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .how-step:not(:last-child)::after {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      :root {
-        --section-pad: 52px;
-      }
-
-      body {
-        font-size: 17px;
-      }
-
-      .container {
-        padding: 0 20px;
-      }
-
-      /* ── Utilities ── */
-      .section-subtitle {
-        max-width: 100%;
-      }
-
-      .section-label {
-        font-size: 13px;
-      }
-
-      /* ── Nav mobile ── */
-      .nav-links {
-        display: none;
-        position: fixed;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: var(--bg-cream);
-        flex-direction: column;
-        padding: 20px;
-        gap: 0;
-        border-bottom: 1px solid var(--border-light);
-        box-shadow: var(--shadow-md);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li {
-        width: 100%;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 16px 0;
-        font-size: 17px;
-        border-bottom: 1px solid var(--border-light);
-      }
-
-      .nav-links li:last-child a {
-        border-bottom: none;
-      }
-
-      .nav-links .nav-cta {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 12px;
-        padding: 14px 22px;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      /* ── Hero mobile ── */
-      .hero {
-        padding-top: 110px;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .hero-desc {
-        font-size: 17px;
-        margin-bottom: 28px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .btn-primary,
-      .hero-actions .btn-whatsapp {
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        padding: 16px 24px;
-      }
-
-      .hero-trust {
-        justify-content: center;
-        font-size: 14px;
-        margin-top: 4px;
-      }
-
-      .hero-screenshot-badge {
-        font-size: 12px;
-        padding: 6px 12px;
-        bottom: -10px;
-        left: 16px;
-      }
-
-      /* ── Stats mobile ── */
-      .stats-bar {
-        flex-direction: column;
-        gap: 20px;
-        padding: 28px 24px;
-      }
-
-      .stat-divider {
-        width: 60px;
-        height: 1px;
-      }
-
-      /* ── Problems mobile ── */
-      .problems-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 32px;
-      }
-
-      .problems-questions h3,
-      .familiar-list h3 {
-        font-size: 20px;
-        margin-bottom: 16px;
-      }
-
-      .problem-question {
-        font-size: 16px;
-        gap: 12px;
-        padding: 12px 0;
-      }
-
-      .familiar-item {
-        font-size: 16px;
-        gap: 12px;
-        padding: 12px 0;
-      }
-
-      /* ── Outcomes mobile ── */
-      .outcomes-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin-top: 32px;
-      }
-
-      .outcome-card {
-        padding: 22px 14px;
-      }
-
-      .outcome-title {
-        font-size: 16px;
-      }
-
-      .outcome-desc {
-        font-size: 15px;
-      }
-
-      /* ── Features mobile ── */
-      .features-section .section-header {
-        margin-bottom: 36px;
-      }
-
-      .feature-block {
-        padding: 24px 20px;
-      }
-
-      .feature-block h3 {
-        font-size: 18px;
-      }
-
-      .feature-desc {
-        font-size: 15px;
-      }
-
-      .feature-list li {
-        font-size: 15px;
-        padding: 6px 0;
-      }
-
-      /* Permissions table: horizontal scroll on small screens */
-      .permissions-table {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        font-size: 13px;
-        white-space: nowrap;
-      }
-
-      .permissions-table th {
-        font-size: 12px;
-        padding: 8px 10px;
-      }
-
-      .permissions-table td {
-        padding: 8px 10px;
-      }
-
-      /* Profit examples */
-      .profit-examples {
-        font-size: 14px;
-        padding: 14px 14px;
-        line-height: 1.8;
-        word-break: break-word;
-      }
-
-      /* ── Gallery mobile ── */
-      .gallery-section .section-header {
-        margin-bottom: 32px;
-      }
-
-      .gallery-track {
-        display: flex;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        gap: 16px;
-        padding-bottom: 12px;
-        margin: 0 -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .gallery-item {
-        flex: 0 0 160px;
-        scroll-snap-align: start;
-      }
-
-      .gallery-item img {
-        max-width: 100%;
-      }
-
-      .gallery-caption {
-        font-size: 13px;
-        margin-top: 8px;
-      }
-
-      .gallery-note {
-        font-size: 14px;
-        margin-top: 20px;
-      }
-
-      /* ── Business types mobile ── */
-      .business-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .business-card {
-        padding: 28px 20px;
-      }
-
-      .business-card h3 {
-        font-size: 18px;
-      }
-
-      .business-tag {
-        font-size: 12px;
-        padding: 4px 10px;
-      }
-
-      /* ── Compare mobile ── */
-      .compare-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .compare-card {
-        padding: 28px 20px;
-      }
-
-      .compare-item {
-        font-size: 15px;
-        padding: 8px 0;
-      }
-
-      /* ── How it works mobile ── */
-      .how-section .section-header {
-        margin-bottom: 36px;
-      }
-
-      .how-steps {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .how-step h3 {
-        font-size: 18px;
-      }
-
-      .how-step p {
-        font-size: 15px;
-      }
-
-      /* ── Demo mobile ── */
-      .demo-section .section-header {
-        margin-bottom: 32px;
-      }
-
-      .demo-play-btn {
-        width: 64px;
-        height: 64px;
-      }
-
-      .demo-play-text {
-        font-size: 16px;
-      }
-
-      .demo-play-sub {
-        font-size: 13px;
-      }
-
-      /* ── Story mobile ── */
-      .story-section .section-header {
-        margin-bottom: 32px;
-      }
-
-      .story-header {
-        padding: 24px 20px;
-      }
-
-      .story-header h3 {
-        font-size: 19px;
-      }
-
-      .story-header p {
-        font-size: 15px;
-      }
-
-      .story-body {
-        padding: 20px 20px;
-      }
-
-      .story-moment {
-        flex-direction: column;
-        gap: 10px;
-        padding: 18px 0;
-      }
-
-      .story-moment h4 {
-        font-size: 16px;
-      }
-
-      .story-moment p {
-        font-size: 15px;
-      }
-
-      .story-impact {
-        font-size: 14px;
-      }
-
-      /* ── FAQ mobile ── */
-      .faq-section .section-header {
-        margin-bottom: 32px;
-      }
-
-      .faq-question {
-        font-size: 16px;
-        padding: 20px 0;
-        gap: 12px;
-        min-height: 56px;
-      }
-
-      .faq-answer-inner {
-        font-size: 15px;
-        padding-bottom: 18px;
-      }
-
-      /* ── CTA mobile ── */
-      .cta-section {
-        padding: var(--section-pad) 0;
-      }
-
-      .cta-section h2 {
-        font-size: 26px;
-        margin-bottom: 12px;
-      }
-
-      .cta-section .cta-desc {
-        font-size: 16px;
-        margin-bottom: 28px;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .cta-buttons .btn-primary,
-      .cta-buttons .btn-whatsapp {
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        padding: 16px 24px;
-      }
-
-      .cta-section .btn-primary {
-        font-size: 17px !important;
-        padding: 16px 24px !important;
-      }
-
-      .cta-contacts {
-        flex-direction: column;
-        gap: 14px;
-        align-items: center;
-        margin-top: 24px;
-      }
-
-      .cta-contact-item {
-        font-size: 15px;
-      }
-
-      .cta-platforms {
-        font-size: 13px;
-        margin-top: 18px;
-      }
-
-      /* ── Footer mobile ── */
-      .footer {
-        padding: 28px 0;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-        gap: 14px;
-      }
-
-      .footer-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 18px;
-      }
-
-      .footer-links a {
-        font-size: 14px;
-      }
-
-      .footer-copy {
-        font-size: 13px;
-      }
-
-      /* ── WhatsApp float mobile ── */
-      .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 54px;
-        height: 54px;
-      }
-
-      .whatsapp-float .tooltip {
-        display: none;
-      }
-    }
-
-    /* ── Extra-small: 480px and below ── */
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 16px;
-      }
-
-      .hero {
-        padding-top: 100px;
-      }
-
-      .hero h1 {
-        font-size: 24px;
-        line-height: 1.2;
-      }
-
-      .hero-desc {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 23px;
-      }
-
-      .section-subtitle {
-        font-size: 16px;
-      }
-
-      .outcomes-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .outcome-card {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        text-align: left;
-        padding: 18px 16px;
-      }
-
-      .outcome-icon {
-        margin-bottom: 0;
-        width: 44px;
-        height: 44px;
-        flex-shrink: 0;
-      }
-
-      .outcome-title {
-        font-size: 15px;
-        margin-bottom: 4px;
-      }
-
-      .outcome-desc {
-        font-size: 14px;
-      }
-
-      .stat-value {
-        font-size: 26px;
-      }
-
-      .stats-bar {
-        padding: 24px 20px;
-        gap: 16px;
-      }
-
-      .feature-block {
-        padding: 20px 16px;
-      }
-
-      .feature-block h3 {
-        font-size: 17px;
-      }
-
-      .feature-header {
-        gap: 10px;
-      }
-
-      .feature-icon-wrap {
-        width: 40px;
-        height: 40px;
-      }
-
-      .compare-card {
-        padding: 22px 16px;
-      }
-
-      .compare-card h3 {
-        font-size: 16px;
-        margin-bottom: 18px;
-      }
-
-      .compare-item {
-        font-size: 14px;
-        gap: 10px;
-      }
-
-      .how-step p {
-        font-size: 14px;
-      }
-
-      .story-header h3 {
-        font-size: 17px;
-      }
-
-      .story-header p {
-        font-size: 14px;
-      }
-
-      .story-moment h4 {
-        font-size: 15px;
-      }
-
-      .story-moment p {
-        font-size: 14px;
-      }
-
-      .story-time {
-        font-size: 12px;
-        padding: 5px 10px;
-      }
-
-      .faq-question {
-        font-size: 15px;
-      }
-
-      .faq-answer-inner {
-        font-size: 14px;
-      }
-
-      .cta-section h2 {
-        font-size: 23px;
-      }
-
-      .cta-section .cta-desc {
-        font-size: 15px;
-      }
-
-      .demo-play-btn {
-        width: 56px;
-        height: 56px;
-      }
-
-      .demo-play-text {
-        font-size: 15px;
-      }
-
-      .demo-play-sub {
-        font-size: 12px;
-      }
-
-      .business-card {
-        padding: 24px 16px;
-      }
-
-      .profit-examples {
-        font-size: 13px;
-        padding: 12px 12px;
-      }
-
-      .permissions-table th {
-        font-size: 11px;
-        padding: 6px 8px;
-      }
-
-      .permissions-table td {
-        font-size: 12px;
-        padding: 6px 8px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -2179,7 +57,8 @@
         <div class="hero-content">
           <h1>Your business deserves more than <span>exercise books and guesswork.</span></h1>
           <p class="hero-desc">
-            Stortrics is the point-of-sale (POS) and inventory management application built for Nigerian businesses. Track every sale, protect your stock,
+            Stortrics is the point-of-sale (POS) and inventory management application built for Nigerian businesses.
+            Track every sale, protect your stock,
             and know your real profit — whether you run a pharmacy, supermarket, salon, or gadget store.
           </p>
           <div class="hero-actions">
@@ -2205,7 +84,8 @@
           </div> -->
         </div>
         <div class="hero-screenshot">
-          <img src="./images/pos_and_cart-desktop.png" alt="Stortrics POS desktop interface showing product selection and cart">
+          <img src="./images/pos_and_cart-desktop.png"
+            alt="Stortrics POS desktop interface showing product selection and cart">
           <div class="hero-screenshot-badge">✓ Works even without internet</div>
         </div>
       </div>
@@ -2332,14 +212,14 @@
             </svg>
           </div>
           <div class="outcome-title">Track every item</div>
-          <div class="outcome-desc">Know exactly what's in stock — updated automatically with every sale or service.</div>
+          <div class="outcome-desc">Know exactly what's in stock — updated automatically with every sale or service.
+          </div>
         </div>
 
         <div class="outcome-card reveal">
           <div class="outcome-icon profit">
             <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-              <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5"
-                stroke-linecap="round" />
+              <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5" stroke-linecap="round" />
             </svg>
           </div>
           <div class="outcome-title">See real profit</div>
@@ -2351,8 +231,8 @@
             <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
               <path d="M3 8.5A5 5 0 018 4a5 5 0 015 4.5" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round"
                 fill="none" />
-              <path d="M5.5 11A3 3 0 018 9.5a3 3 0 012.5 1.5" stroke="#5B5FD9" stroke-width="1.3"
-                stroke-linecap="round" fill="none" />
+              <path d="M5.5 11A3 3 0 018 9.5a3 3 0 012.5 1.5" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round"
+                fill="none" />
               <circle cx="8" cy="13.5" r="1" fill="#5B5FD9" />
               <line x1="2" y1="2" x2="14" y2="14" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round" />
             </svg>
@@ -2403,7 +283,8 @@
             </div>
             <h3>All-in-One Checkout</h3>
           </div>
-          <p class="feature-desc">Sell products, book services, or mix both in a single sale — one cart, one receipt, one system. Built for speed in busy shops.</p>
+          <p class="feature-desc">Sell products, book services, or mix both in a single sale — one cart, one receipt,
+            one system. Built for speed in busy shops.</p>
           <ul class="feature-list">
             <li>Barcode scanning — point at the product and it adds to the bill instantly</li>
             <li>Product search — type a name and find it in seconds; recent items appear first</li>
@@ -2428,7 +309,8 @@
             </div>
             <h3>Inventory Management</h3>
           </div>
-          <p class="feature-desc">Complete stock control for hundreds of products — from drugs in a pharmacy to gadgets in an electronics shop.</p>
+          <p class="feature-desc">Complete stock control for hundreds of products — from drugs in a pharmacy to gadgets
+            in an electronics shop.</p>
           <ul class="feature-list">
             <li>Product catalog — add items with barcodes, images, cost price, and selling price</li>
             <li>Automatic stock updates — every sale deducts stock instantly, no manual counting</li>
@@ -2452,7 +334,8 @@
             </div>
             <h3>Sales Reports & Analytics</h3>
           </div>
-          <p class="feature-desc">Know how your business is doing — anytime, anywhere. Daily reports delivered to your inbox.</p>
+          <p class="feature-desc">Know how your business is doing — anytime, anywhere. Daily reports delivered to your
+            inbox.</p>
           <ul class="feature-list">
             <li>Daily sales summary — today's revenue, transaction count, top products</li>
             <li>Profit analysis — see exactly how much profit each product or service gives you</li>
@@ -2486,7 +369,8 @@
             </div>
             <h3>Staff Management & Security</h3>
           </div>
-          <p class="feature-desc">Protect your business with bank-level security and full accountability — know exactly who did what, and when.</p>
+          <p class="feature-desc">Protect your business with bank-level security and full accountability — know exactly
+            who did what, and when.</p>
           <ul class="feature-list">
             <li>Multiple staff accounts — each team member gets their own login</li>
             <li>Role-based permissions — staff can sell, managers can adjust stock, only you see everything</li>
@@ -2541,7 +425,8 @@
         <div class="section-label">Also on Mobile</div>
         <h2 class="section-title">Stortrics goes wherever you go.</h2>
         <p class="section-subtitle">
-          Run your shop from your desktop. Check on things from your phone. Every feature works across all your devices — and syncs automatically.
+          Run your shop from your desktop. Check on things from your phone. Every feature works across all your devices
+          — and syncs automatically.
         </p>
       </div>
 
@@ -2562,7 +447,7 @@
           <img src="./images/analytics-mobile.png" alt="Analytics dashboard on mobile" loading="lazy">
           <div class="gallery-caption">Sales Analytics</div>
         </div>
-        <div class="gallery-item">
+        <!-- <div class="gallery-item">
           <img src="./images/transaction_history-mobile.png" alt="Transaction history on mobile" loading="lazy">
           <div class="gallery-caption">Transaction History</div>
         </div>
@@ -2573,7 +458,7 @@
         <div class="gallery-item">
           <img src="./images/user_management-mobile.png" alt="Team management on mobile" loading="lazy">
           <div class="gallery-caption">Team Management</div>
-        </div>
+        </div> -->
       </div>
 
       <p class="gallery-note reveal">All screens sync in real-time. Start on desktop, continue on your phone.</p>
@@ -2618,8 +503,7 @@
           <div class="business-icon product">
             <svg width="30" height="30" viewBox="0 0 16 16" fill="none">
               <rect x="2" y="7" width="12" height="7.5" rx="1" stroke="#1B7A6E" stroke-width="1.2" fill="none" />
-              <path d="M5 7V5a3 3 0 016 0v2" stroke="#1B7A6E" stroke-width="1.2" stroke-linecap="round"
-                fill="none" />
+              <path d="M5 7V5a3 3 0 016 0v2" stroke="#1B7A6E" stroke-width="1.2" stroke-linecap="round" fill="none" />
             </svg>
           </div>
           <h3>Product-Oriented</h3>
@@ -2657,16 +541,19 @@
           <div class="compare-item"><span class="compare-x">✗</span> Manual counting every morning — wasted time</div>
           <div class="compare-item"><span class="compare-x">✗</span> "Let me check and get back to you"</div>
           <div class="compare-item"><span class="compare-x">✗</span> Monthly reconciliation that never adds up</div>
-          <div class="compare-item"><span class="compare-x">✗</span> No way to know if staff gave unauthorized discounts</div>
+          <div class="compare-item"><span class="compare-x">✗</span> No way to know if staff gave unauthorized discounts
+          </div>
         </div>
 
         <div class="compare-card after">
           <h3>With Stortrics</h3>
           <div class="compare-item"><span class="compare-check">✓</span> One live system — always accurate</div>
-          <div class="compare-item"><span class="compare-check">✓</span> Real-time stock visibility across branches</div>
+          <div class="compare-item"><span class="compare-check">✓</span> Real-time stock visibility across branches
+          </div>
           <div class="compare-item"><span class="compare-check">✓</span> Automatic updates — no morning counting</div>
           <div class="compare-item"><span class="compare-check">✓</span> Instant answers from your dashboard</div>
-          <div class="compare-item"><span class="compare-check">✓</span> Every sale and return permanently recorded</div>
+          <div class="compare-item"><span class="compare-check">✓</span> Every sale and return permanently recorded
+          </div>
           <div class="compare-item"><span class="compare-check">✓</span> Clear accountability — who did what, when</div>
         </div>
       </div>
@@ -2682,7 +569,8 @@
         <div class="section-label">Getting Started</div>
         <h2 class="section-title">You don't need to change everything at once.</h2>
         <p class="section-subtitle">
-          Start small, grow from there. Stortrics works the moment you set it up — and we'll walk you through every step.
+          Start small, grow from there. Stortrics works the moment you set it up — and we'll walk you through every
+          step.
         </p>
       </div>
 
@@ -2690,19 +578,22 @@
         <div class="how-step reveal">
           <div class="step-number">1</div>
           <h3>Book a demo</h3>
-          <p>Chat with our team on WhatsApp. We'll show you how Stortrics works for your specific business — in under 15 minutes.</p>
+          <p>Chat with our team on WhatsApp. We'll show you how Stortrics works for your specific business — in under 15
+            minutes.</p>
         </div>
 
         <div class="how-step reveal">
           <div class="step-number">2</div>
           <h3>Set up your shop</h3>
-          <p>We help you add your products, categories, staff accounts, and branch locations. Most businesses are live within a day.</p>
+          <p>We help you add your products, categories, staff accounts, and branch locations. Most businesses are live
+            within a day.</p>
         </div>
 
         <div class="how-step reveal">
           <div class="step-number">3</div>
           <h3>Start selling</h3>
-          <p>Process sales, track stock, and see your profit — all from day one. Everything works even without internet.</p>
+          <p>Process sales, track stock, and see your profit — all from day one. Everything works even without internet.
+          </p>
         </div>
       </div>
 
@@ -2759,7 +650,8 @@
         <div class="story-header">
           <h3>Oga Emeka runs a busy gadget store with 3 sales staff and a manager.</h3>
           <p>He stocks everything from Tecno and Infinix smartphones to HP laptops, Oraimo power banks,
-            FreePods earbuds, and hundreds of accessories. Before Stortrics, he used exercise books and relied on trust —
+            FreePods earbuds, and hundreds of accessories. Before Stortrics, he used exercise books and relied on trust
+            —
             until he noticed phones going missing and profits not matching sales.</p>
         </div>
         <div class="story-body">
@@ -2767,7 +659,9 @@
             <span class="story-time">8:00 AM</span>
             <div>
               <h4>Morning stock check — zero counting</h4>
-              <p>Opens Stortrics on his laptop. Sees power banks are running low (5 left), calls his supplier before the weekend rush. No more 30-minute morning counts — the app already knows what's in stock from yesterday's sales.</p>
+              <p>Opens Stortrics on his laptop. Sees power banks are running low (5 left), calls his supplier before the
+                weekend rush. No more 30-minute morning counts — the app already knows what's in stock from yesterday's
+                sales.</p>
             </div>
           </div>
 
@@ -2775,7 +669,9 @@
             <span class="story-time">10:30 AM</span>
             <div>
               <h4>Peak hours — fast checkout</h4>
-              <p>Customer buys an Infinix Note 40 (₦195,000) and Oraimo FreePods (₦12,000). Barcode scan, bank transfer reference, receipt printed. Total time: 40 seconds. Stock updates automatically — no exercise book needed.</p>
+              <p>Customer buys an Infinix Note 40 (₦195,000) and Oraimo FreePods (₦12,000). Barcode scan, bank transfer
+                reference, receipt printed. Total time: 40 seconds. Stock updates automatically — no exercise book
+                needed.</p>
             </div>
           </div>
 
@@ -2783,8 +679,11 @@
             <span class="story-time">1:00 PM</span>
             <div>
               <h4>Catching fraud red-handed</h4>
-              <p>Notices a stock count mismatch. Opens the audit log: a sales staff member sold a power bank yesterday, then processed a fake "return" 7 minutes later to pocket the cash. With exercise books, this scheme would be invisible.</p>
-              <p class="story-impact">💡 This scheme was costing ₦150,000/month. The permanent audit trail caught it immediately.</p>
+              <p>Notices a stock count mismatch. Opens the audit log: a sales staff member sold a power bank yesterday,
+                then processed a fake "return" 7 minutes later to pocket the cash. With exercise books, this scheme
+                would be invisible.</p>
+              <p class="story-impact">💡 This scheme was costing ₦150,000/month. The permanent audit trail caught it
+                immediately.</p>
             </div>
           </div>
 
@@ -2792,7 +691,9 @@
             <span class="story-time">3:30 PM</span>
             <div>
               <h4>Bulk order — protected margins</h4>
-              <p>A businessman wants 5 laptops (₦380K each). Asks for a discount. The staff can't give one — the app won't allow it for their role. Oga Emeka logs in, adjusts to ₦360K/unit (still ₦40K profit each), approves. The audit log records every price change.</p>
+              <p>A businessman wants 5 laptops (₦380K each). Asks for a discount. The staff can't give one — the app
+                won't allow it for their role. Oga Emeka logs in, adjusts to ₦360K/unit (still ₦40K profit each),
+                approves. The audit log records every price change.</p>
             </div>
           </div>
 
@@ -2800,7 +701,9 @@
             <span class="story-time">8:00 PM</span>
             <div>
               <h4>End-of-day clarity</h4>
-              <p>Today's summary: ₦2,850,000 in sales across 47 transactions. Total profit: ₦485,000. He taps "Export PDF" and WhatsApps it to his brother who handles the books. No staying late to count cash and tally receipts.</p>
+              <p>Today's summary: ₦2,850,000 in sales across 47 transactions. Total profit: ₦485,000. He taps "Export
+                PDF" and WhatsApps it to his brother who handles the books. No staying late to count cash and tally
+                receipts.</p>
               <p class="story-impact">💡 "We did ₦2.85M today, ₦485K profit." Real numbers, not guesswork.</p>
             </div>
           </div>
@@ -2809,7 +712,8 @@
             <span class="story-time">10:00 PM</span>
             <div>
               <h4>Automatic backup at home</h4>
-              <p>At home, Stortrics silently backs up the day's data over WiFi: 47 transactions, 15 stock adjustments, 2 price overrides. Everything is backed up. Nothing is lost.</p>
+              <p>At home, Stortrics silently backs up the day's data over WiFi: 47 transactions, 15 stock adjustments, 2
+                price overrides. Everything is backed up. Nothing is lost.</p>
             </div>
           </div>
         </div>
@@ -2835,12 +739,18 @@
           <button class="faq-question" aria-expanded="false">
             What kind of businesses is Stortrics built for?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Stortrics is designed for any small to medium-sized Nigerian business — whether you sell products (pharmacies, supermarkets, gadget stores, provision shops, boutiques), offer services (salons, barbing shops, laundry, car washes, repair centres), or both. If you process sales and need to track what comes in and goes out, Stortrics is for you.
+              Stortrics is designed for any small to medium-sized Nigerian business — whether you sell products
+              (pharmacies, supermarkets, gadget stores, provision shops, boutiques), offer services (salons, barbing
+              shops, laundry, car washes, repair centres), or both. If you process sales and need to track what comes in
+              and goes out, Stortrics is for you.
             </div>
           </div>
         </div>
@@ -2849,12 +759,17 @@
           <button class="faq-question" aria-expanded="false">
             Does Stortrics work without internet?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Yes — Stortrics is built offline-first. You can process sales, check stock, print receipts, and do everything you need even with zero internet. When your connection returns, all data syncs automatically. Nothing is ever lost.
+              Yes — Stortrics is built offline-first. You can process sales, check stock, print receipts, and do
+              everything you need even with zero internet. When your connection returns, all data syncs automatically.
+              Nothing is ever lost.
             </div>
           </div>
         </div>
@@ -2863,12 +778,17 @@
           <button class="faq-question" aria-expanded="false">
             What devices can I use?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Stortrics runs on Windows desktops and laptops (the primary experience for day-to-day operations), Android tablets, and Android phones. Most businesses use a desktop or laptop at their shop counter, and their phone to check reports and stock levels on the go.
+              Stortrics runs on Windows desktops and laptops (the primary experience for day-to-day operations), Android
+              tablets, and Android phones. Most businesses use a desktop or laptop at their shop counter, and their
+              phone to check reports and stock levels on the go.
             </div>
           </div>
         </div>
@@ -2877,12 +797,17 @@
           <button class="faq-question" aria-expanded="false">
             Is my data safe? What if my computer breaks?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Your data is stored locally on your device and backed up to the cloud whenever you have internet. If your device breaks, gets stolen, or needs to be replaced, you simply log into Stortrics on a new device and everything is restored — all your products, sales history, staff accounts, and reports.
+              Your data is stored locally on your device and backed up to the cloud whenever you have internet. If your
+              device breaks, gets stolen, or needs to be replaced, you simply log into Stortrics on a new device and
+              everything is restored — all your products, sales history, staff accounts, and reports.
             </div>
           </div>
         </div>
@@ -2891,12 +816,17 @@
           <button class="faq-question" aria-expanded="false">
             Can my staff delete sales records or hide transactions?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              No. Every sale, return, price change, and stock adjustment is permanently recorded in the audit log — including who did it and when. These records cannot be edited or deleted by anyone, including the owner. This is how Stortrics catches fraud that exercise books would miss.
+              No. Every sale, return, price change, and stock adjustment is permanently recorded in the audit log —
+              including who did it and when. These records cannot be edited or deleted by anyone, including the owner.
+              This is how Stortrics catches fraud that exercise books would miss.
             </div>
           </div>
         </div>
@@ -2905,12 +835,17 @@
           <button class="faq-question" aria-expanded="false">
             How do I get started?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Simply book a demo — send us a message on WhatsApp or email. We'll give you a 15-minute walkthrough tailored to your type of business, answer all your questions, and help you get set up. Most businesses are fully operational within one day of onboarding.
+              Simply book a demo — send us a message on WhatsApp or email. We'll give you a 15-minute walkthrough
+              tailored to your type of business, answer all your questions, and help you get set up. Most businesses are
+              fully operational within one day of onboarding.
             </div>
           </div>
         </div>
@@ -2919,12 +854,17 @@
           <button class="faq-question" aria-expanded="false">
             How much does Stortrics cost?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Pricing depends on your business size, number of branches, and the features you need. We offer flexible plans designed to be affordable for Nigerian SMEs. Book a demo and we'll walk you through the options that fit your business and budget — no surprises.
+              Pricing depends on your business size, number of branches, and the features you need. We offer flexible
+              plans designed to be affordable for Nigerian SMEs. Book a demo and we'll walk you through the options that
+              fit your business and budget — no surprises.
             </div>
           </div>
         </div>
@@ -2933,12 +873,17 @@
           <button class="faq-question" aria-expanded="false">
             Can I manage multiple shop branches?
             <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
             </span>
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Yes. Stortrics supports multiple branches from a single account. Each branch maintains its own inventory and staff, while you get a consolidated view of sales and stock across all locations. Run your Ogbete shop and Computer Village branch — or your pharmacy in Lekki and Ikeja — from one login.
+              Yes. Stortrics supports multiple branches from a single account. Each branch maintains its own inventory
+              and staff, while you get a consolidated view of sales and stock across all locations. Run your Ogbete shop
+              and Computer Village branch — or your pharmacy in Lekki and Ikeja — from one login.
             </div>
           </div>
         </div>
@@ -2958,7 +903,8 @@
       </p>
       <div class="cta-buttons reveal">
         <a href="https://wa.me/2349077404771?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
-          target="_blank" rel="noopener" class="btn-primary" style="font-size:18px; padding: 17px 36px;">Book a Demo →</a>
+          target="_blank" rel="noopener" class="btn-primary" style="font-size:18px; padding: 17px 36px;">Book a Demo
+          →</a>
         <a href="https://wa.me/2349077404771?text=Hi%2C%20I%27m%20interested%20in%20Stortrics%20and%20would%20like%20more%20information."
           target="_blank" rel="noopener" class="btn-whatsapp">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -2976,8 +922,7 @@
       <div class="cta-contacts reveal">
         <div class="cta-contact-item">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"
-              fill="none" />
+            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
             <path d="M1.5 6l6.5 4 6.5-4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
           </svg>
           <a href="mailto:stortrics@gmail.com">stortrics@gmail.com</a>
@@ -3014,8 +959,8 @@
   <!-- ══════════════════════════════════════════
        FLOATING WHATSAPP BUTTON
        ══════════════════════════════════════════ -->
-  <a href="https://wa.me/2349077404771?text=Hi%2C%20I%27m%20interested%20in%20Stortrics." target="_blank"
-    rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/2349077404771?text=Hi%2C%20I%27m%20interested%20in%20Stortrics." target="_blank" rel="noopener"
+    class="whatsapp-float" aria-label="Chat on WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <path
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
