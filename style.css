@@ -136,8 +136,11 @@
       text-decoration: none;
     }
 
-    .nav-brand svg {
+    .nav-brand svg,
+    .nav-brand img {
       flex-shrink: 0;
+      display: block;
+      object-fit: contain;
     }
 
     .nav-brand-name {
