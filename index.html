@@ -4,119 +4,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stortrics — Point of Sale for Every Business</title>
+  <title>Stortrics | Sales and stock software for Nigerian shops</title>
   <meta name="description"
-    content="Stortrics is the offline-first POS app built for Nigerian businesses. Track every sale, protect your stock, and know your real profit — whether you run a pharmacy, supermarket, salon, or gadget store.">
+    content="Record product and service sales, keep track of stock and review profit using your recorded costs. Stortrics is sales and stock software for Nigerian shops.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261015-3">
 </head>
 
 <body>
-  <!-- ══════════════════════════════════════════
-       NAVIGATION
-       ══════════════════════════════════════════ -->
-  <nav class="navbar" id="navbar">
+  <!-- First review checkpoint: header, hero and core benefits. -->
+  <nav class="navbar navbar--modern" id="navbar" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="#" class="nav-brand" id="nav-brand">
-        <img src="images/stortrics-logo.png" alt="Stortrics logo" width="34" height="34" class="nav-brand-icon">
+      <a href="#hero" class="nav-brand" id="nav-brand" aria-label="Stortrics home">
+        <img src="images/stortrics-logo.png" alt="" width="34" height="34" class="nav-brand-icon">
         <span class="nav-brand-name">Stortrics</span>
       </a>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation"
+        aria-controls="nav-links" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
-
       <ul class="nav-links" id="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Product</a></li>
+        <li><a href="#compare">The difference</a></li>
+        <li><a href="#how-it-works">Getting started</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#cta" class="nav-cta">Book a Demo</a></li>
+        <li><a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics." target="_blank" rel="noopener" class="nav-cta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                  fill="currentColor" />
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.213l-.257-.154-2.833.84.84-2.833-.154-.257A8 8 0 1112 20z"
+                  fill="currentColor" />
+              </svg> Book a demo on WhatsApp
+        </a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ══════════════════════════════════════════
-       HERO
-       ══════════════════════════════════════════ -->
-  <header class="hero" id="hero">
+  <header class="hero hero--modern" id="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <h1>Your business deserves more than <span>exercise books and guesswork.</span></h1>
-          <p class="hero-desc">
-            Stortrics is the point-of-sale (POS) and inventory management application built for Nigerian businesses.
-            Track every sale, protect your stock,
-            and know your real profit — whether you run a pharmacy, supermarket, salon, or gadget store.
-          </p>
+          <p class="hero-eyebrow">Sales and stock software for Nigerian businesses</p>
+          <h1>Your business deserves more than exercise books and guesswork.</h1>
+          <p class="hero-desc">Record sales, keep track of stock and see the profit on what you sell. For shops that sell products, services or both.</p>
           <div class="hero-actions">
-            <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
-              target="_blank" rel="noopener" class="btn-primary">Book a Demo →</a>
-            <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27m%20interested%20in%20Stortrics." target="_blank"
-              rel="noopener" class="btn-whatsapp">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics." target="_blank" rel="noopener" class="hero-demo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-                  fill="#25D366" />
+                  fill="currentColor" />
                 <path
                   d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.213l-.257-.154-2.833.84.84-2.833-.154-.257A8 8 0 1112 20z"
-                  fill="#25D366" />
-              </svg>
-              Chat on WhatsApp
+                  fill="currentColor" />
+              </svg> Book a demo
             </a>
+            <a href="#features" class="hero-tour">See how it works <span aria-hidden="true">→</span></a>
           </div>
-          <!-- <div class="hero-trust">
-            <span>No setup fees</span>
-            <span>Works offline</span>
-            <span>Desktop, tablet & phone</span>
-          </div> -->
+          <p class="hero-offline"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="19" r="1.2" fill="currentColor"/></svg><span>Keep selling when the network drops.</span></p>
         </div>
-        <div class="hero-screenshot">
-          <img src="./images/pos_and_cart-desktop.png"
-            alt="Stortrics POS desktop interface showing product selection and cart">
-          <div class="hero-screenshot-badge">✓ Works even without internet</div>
-        </div>
+        <figure class="hero-preview hero-device-stage">
+          <div class="hero-device">
+            <div class="hero-device-camera" aria-hidden="true"></div>
+            <div class="hero-preview-frame">
+              <img src="images/checkout-current-demo.png" width="1280" height="1000"
+                alt="Stortrics checkout showing a Speaker and Device repair in one demo order"
+                fetchpriority="high" decoding="async">
+            </div>
+          </div>
+          <figcaption>Product and service sale. Demo data shown.</figcaption>
+        </figure>
       </div>
     </div>
   </header>
 
-  <!-- ══════════════════════════════════════════
-       STATS BAR
-       ══════════════════════════════════════════ -->
-  <section class="stats-section reveal" id="stats">
-    <div class="container">
-      <div class="stats-bar">
-        <div class="stat-item">
-          <div class="stat-value">500+</div>
-          <div class="stat-label">Products Tracked</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value">40s</div>
-          <div class="stat-label">Per Transaction</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value">100%</div>
-          <div class="stat-label">Offline Ready</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-value">Multi</div>
-          <div class="stat-label">Branch Support</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       PROBLEM SECTION
-       ══════════════════════════════════════════ -->
   <section class="problems-section" id="problems">
     <div class="container">
       <div class="section-label reveal">The Problem</div>
@@ -186,752 +152,254 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       OUTCOMES
-       ══════════════════════════════════════════ -->
-  <section class="outcomes-section reveal" id="outcomes">
+  <section class="difference-section" id="compare" aria-labelledby="difference-title">
     <div class="container">
-      <div style="text-align:center; margin-bottom: 16px;">
-        <div class="section-label">What Changes</div>
-        <h2 class="section-title">Stortrics replaces the guesswork with clarity.</h2>
+      <div class="difference-heading">
+        <p class="context-kicker">The Difference</p>
+        <h2 id="difference-title">What Stortrics replaces</h2>
       </div>
-
-      <div class="outcomes-grid">
-        <div class="outcome-card reveal">
-          <div class="outcome-icon stock">
-            <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-              <path d="M2 12l4-4 3 3 5-6" stroke="#1B7A6E" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="outcome-title">Track every item</div>
-          <div class="outcome-desc">Know exactly what's in stock — updated automatically with every sale or service.
-          </div>
-        </div>
-
-        <div class="outcome-card reveal">
-          <div class="outcome-icon profit">
-            <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-              <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="outcome-title">See real profit</div>
-          <div class="outcome-desc">Know how much you actually made today — real numbers, not guesswork.</div>
-        </div>
-
-        <div class="outcome-card reveal">
-          <div class="outcome-icon offline">
-            <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8.5A5 5 0 018 4a5 5 0 015 4.5" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round"
-                fill="none" />
-              <path d="M5.5 11A3 3 0 018 9.5a3 3 0 012.5 1.5" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round"
-                fill="none" />
-              <circle cx="8" cy="13.5" r="1" fill="#5B5FD9" />
-              <line x1="2" y1="2" x2="14" y2="14" stroke="#5B5FD9" stroke-width="1.3" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="outcome-title">Sell offline</div>
-          <div class="outcome-desc">Network down? No problem. Everything syncs when you're back online.</div>
-        </div>
-
-        <div class="outcome-card reveal">
-          <div class="outcome-icon security">
-            <svg width="26" height="26" viewBox="0 0 16 16" fill="none">
-              <path d="M8 2L3 4.5V8c0 3 2.2 5.2 5 6 2.8-.8 5-3 5-6V4.5L8 2z" stroke="#F0A500" stroke-width="1.3"
-                fill="none" />
-              <path d="M5.5 8.5l1.8 1.8 3-3.5" stroke="#F0A500" stroke-width="1.3" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="outcome-title">Control your team</div>
-          <div class="outcome-desc">Every action is logged. Set who can sell, discount, or adjust stock.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       FEATURES
-       ══════════════════════════════════════════ -->
-  <section class="features-section" id="features">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Features</div>
-        <h2 class="section-title">Everything you need to run your business.</h2>
-        <p class="section-subtitle">
-          Stortrics gives you the tools that large chains use — right on your desktop, tablet, or phone. Simple enough
-          for any staff member, powerful enough for your growing business.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <!-- Point of Sale -->
-        <div class="feature-block reveal">
-          <div class="feature-header">
-            <div class="feature-icon-wrap pos">
-              <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
-                <rect x="2" y="2" width="12" height="12" rx="2" stroke="#E8653A" stroke-width="1.2" fill="none" />
-                <path d="M5 8h6M5 5.5h4M5 10.5h3" stroke="#E8653A" stroke-width="1.1" stroke-linecap="round" />
-              </svg>
-            </div>
-            <h3>All-in-One Checkout</h3>
-          </div>
-          <p class="feature-desc">Sell products, book services, or mix both in a single sale — one cart, one receipt,
-            one system. Built for speed in busy shops.</p>
-          <ul class="feature-list">
-            <li>Barcode scanning — point at the product and it adds to the bill instantly</li>
-            <li>Product search — type a name and find it in seconds; recent items appear first</li>
-            <li>Easy cart — add/remove items, adjust quantities, see total in real-time</li>
-            <li>Multiple payments — cash, bank transfer, POS card, USSD, split payment</li>
-            <li>Receipt printing — Bluetooth thermal printer or share via WhatsApp</li>
-            <li>Works on desktop, tablet, and phone — your choice</li>
-          </ul>
-          <div class="feature-screenshot-wrap">
-            <img src="./images/pos_and_cart-desktop.png" alt="Desktop POS checkout interface" class="desktop-shot">
-          </div>
-        </div>
-
-        <!-- Inventory Management -->
-        <div class="feature-block reveal">
-          <div class="feature-header">
-            <div class="feature-icon-wrap inventory">
-              <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
-                <path d="M2 12l4-4 3 3 5-6" stroke="#1B7A6E" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-            <h3>Inventory Management</h3>
-          </div>
-          <p class="feature-desc">Complete stock control for hundreds of products — from drugs in a pharmacy to gadgets
-            in an electronics shop.</p>
-          <ul class="feature-list">
-            <li>Product catalog — add items with barcodes, images, cost price, and selling price</li>
-            <li>Automatic stock updates — every sale deducts stock instantly, no manual counting</li>
-            <li>Low-stock alerts — get notified before you run out of fast-moving items</li>
-            <li>Stock adjustments — record deliveries, damages, or corrections with full audit trail</li>
-            <li>Categories — organize by any structure that fits your business</li>
-          </ul>
-          <div class="feature-screenshot-wrap">
-            <img src="./images/inventory-desktop.png" alt="Desktop inventory management" class="desktop-shot">
-          </div>
-        </div>
-
-        <!-- Sales Reports & Analytics -->
-        <div class="feature-block reveal">
-          <div class="feature-header">
-            <div class="feature-icon-wrap reports">
-              <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
-                <path d="M3 13V9M6.5 13V6M10 13V8M13.5 13V4" stroke="#5A9E2F" stroke-width="1.5"
-                  stroke-linecap="round" />
-              </svg>
-            </div>
-            <h3>Sales Reports & Analytics</h3>
-          </div>
-          <p class="feature-desc">Know how your business is doing — anytime, anywhere. Daily reports delivered to your
-            inbox.</p>
-          <ul class="feature-list">
-            <li>Daily sales summary — today's revenue, transaction count, top products</li>
-            <li>Profit analysis — see exactly how much profit each product or service gives you</li>
-            <li>Top sellers — know which items move fastest so you can stock accordingly</li>
-            <li>Date range reports — compare this week to last week, this month to last month</li>
-            <li>Export to PDF — share reports via WhatsApp with partners or accountants</li>
-            <li>Email reports — daily revenue, profit, and top performers sent to your inbox automatically</li>
-          </ul>
-          <div class="profit-examples">
-            <strong>Example Profit Breakdown:</strong><br>
-            Drug X: Cost ₦800 → Sell ₦1,500 = <strong>₦700 profit (87%)</strong><br>
-            Phone Accessory: Cost ₦1.5K → Sell ₦3.5K = <strong>₦2K profit (133%)</strong><br>
-            Service (Haircut): Cost ₦0 → Charge ₦2K = <strong>₦2K profit (100%)</strong><br>
-            Product Bundle: Cost ₦5K → Sell ₦8.5K = <strong>₦3.5K profit (70%)</strong>
-          </div>
-          <div class="feature-screenshot-wrap" style="margin-top:16px;">
-            <img src="./images/analytics-desktop.png" alt="Desktop analytics dashboard" class="desktop-shot">
-          </div>
-        </div>
-
-        <!-- Staff Management & Security -->
-        <div class="feature-block reveal">
-          <div class="feature-header">
-            <div class="feature-icon-wrap staff">
-              <svg width="24" height="24" viewBox="0 0 16 16" fill="none">
-                <path d="M8 2L3 4.5V8c0 3 2.2 5.2 5 6 2.8-.8 5-3 5-6V4.5L8 2z" stroke="#F0A500" stroke-width="1.3"
-                  fill="none" />
-                <path d="M5.5 8.5l1.8 1.8 3-3.5" stroke="#F0A500" stroke-width="1.3" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-            <h3>Staff Management & Security</h3>
-          </div>
-          <p class="feature-desc">Protect your business with bank-level security and full accountability — know exactly
-            who did what, and when.</p>
-          <ul class="feature-list">
-            <li>Multiple staff accounts — each team member gets their own login</li>
-            <li>Role-based permissions — staff can sell, managers can adjust stock, only you see everything</li>
-            <li>PIN login — secure, easy, fast</li>
-            <li>Permanent audit trail — every action recorded (who, what, when) — cannot be deleted</li>
-            <li>Smart price protection — prevents selling below cost price, even by mistake</li>
-          </ul>
-          <table class="permissions-table">
-            <tr>
-              <th>Role</th>
-              <th>Can Sell</th>
-              <th>Discounts</th>
-              <th>Returns</th>
-              <th>Reports</th>
-            </tr>
-            <tr>
-              <td>Owner</td>
-              <td>✓</td>
-              <td>✓</td>
-              <td>✓</td>
-              <td>✓</td>
-            </tr>
-            <tr>
-              <td>Manager</td>
-              <td>✓</td>
-              <td>✓ limited</td>
-              <td>✓</td>
-              <td>✗</td>
-            </tr>
-            <tr>
-              <td>Staff</td>
-              <td>✓</td>
-              <td>✗</td>
-              <td>✗</td>
-              <td>✗</td>
-            </tr>
-          </table>
-          <div class="feature-screenshot-wrap" style="margin-top:16px;">
-            <img src="./images/user_managment-desktop.png" alt="Desktop staff management" class="desktop-shot">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       SCREENSHOT GALLERY — MOBILE APP
-       ══════════════════════════════════════════ -->
-  <section class="gallery-section" id="gallery">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Also on Mobile</div>
-        <h2 class="section-title">Stortrics goes wherever you go.</h2>
-        <p class="section-subtitle">
-          Run your shop from your desktop. Check on things from your phone. Every feature works across all your devices
-          — and syncs automatically.
-        </p>
-      </div>
-
-      <div class="gallery-track reveal">
-        <div class="gallery-item">
-          <img src="./images/pos-mobile.png" alt="Point of Sale on mobile" loading="lazy">
-          <div class="gallery-caption">Point of Sale</div>
-        </div>
-        <div class="gallery-item">
-          <img src="./images/pos_and_cart-mobile.png" alt="Cart view on mobile" loading="lazy">
-          <div class="gallery-caption">Cart & Checkout</div>
-        </div>
-        <div class="gallery-item">
-          <img src="./images/inventory-mobile.png" alt="Inventory on mobile" loading="lazy">
-          <div class="gallery-caption">Inventory</div>
-        </div>
-        <div class="gallery-item">
-          <img src="./images/analytics-mobile.png" alt="Analytics dashboard on mobile" loading="lazy">
-          <div class="gallery-caption">Sales Analytics</div>
-        </div>
-        <!-- <div class="gallery-item">
-          <img src="./images/transaction_history-mobile.png" alt="Transaction history on mobile" loading="lazy">
-          <div class="gallery-caption">Transaction History</div>
-        </div>
-        <div class="gallery-item">
-          <img src="./images/transaction_details-mobile.png" alt="Transaction details on mobile" loading="lazy">
-          <div class="gallery-caption">Transaction Details</div>
-        </div>
-        <div class="gallery-item">
-          <img src="./images/user_management-mobile.png" alt="Team management on mobile" loading="lazy">
-          <div class="gallery-caption">Team Management</div>
-        </div> -->
-      </div>
-
-      <p class="gallery-note reveal">All screens sync in real-time. Start on desktop, continue on your phone.</p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       BUSINESS TYPES
-       ══════════════════════════════════════════ -->
-  <section class="business-section reveal" id="business-types">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Built For You</div>
-        <h2 class="section-title">One app. Any business.</h2>
-        <p class="section-subtitle">
-          Whether you sell products, offer services, or both — Stortrics keeps everything in one place. No spreadsheets.
-          No guesswork. Just your business, running smoothly.
-        </p>
-      </div>
-
-      <div class="business-grid">
-        <div class="business-card reveal">
-          <div class="business-icon service">
-            <svg width="30" height="30" viewBox="0 0 16 16" fill="none">
-              <circle cx="8" cy="5.5" r="2.5" stroke="#5B5FD9" stroke-width="1.2" fill="none" />
-              <path d="M3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#5B5FD9" stroke-width="1.2" stroke-linecap="round"
-                fill="none" />
-            </svg>
-          </div>
-          <h3>Service-Oriented</h3>
-          <p>Track appointments, bookings, and payments — without inventory overhead.</p>
-          <div class="business-examples">
-            <span class="business-tag">Salons</span>
-            <span class="business-tag">Barbing shops</span>
-            <span class="business-tag">Laundry</span>
-            <span class="business-tag">Car washes</span>
-            <span class="business-tag">Repair centres</span>
-          </div>
-        </div>
-
-        <div class="business-card reveal">
-          <div class="business-icon product">
-            <svg width="30" height="30" viewBox="0 0 16 16" fill="none">
-              <rect x="2" y="7" width="12" height="7.5" rx="1" stroke="#1B7A6E" stroke-width="1.2" fill="none" />
-              <path d="M5 7V5a3 3 0 016 0v2" stroke="#1B7A6E" stroke-width="1.2" stroke-linecap="round" fill="none" />
-            </svg>
-          </div>
-          <h3>Product-Oriented</h3>
-          <p>Full inventory tracking with every sale — know what moves, what's left, and what to reorder.</p>
-          <div class="business-examples">
-            <span class="business-tag">Pharmacies</span>
-            <span class="business-tag">Supermarkets</span>
-            <span class="business-tag">Gadget stores</span>
-            <span class="business-tag">Provision shops</span>
-            <span class="business-tag">Boutiques</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       COMPARISON
-       ══════════════════════════════════════════ -->
-  <section class="compare-section reveal" id="compare">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">The Difference</div>
-        <h2 class="section-title">What Stortrics replaces.</h2>
-        <p class="section-subtitle">
-          You've been managing your business with tools that weren't built for it. Here's what changes.
-        </p>
-      </div>
-
-      <div class="compare-grid">
-        <div class="compare-card before">
+      <div class="difference-grid">
+        <article class="difference-card difference-card--before">
           <h3>Your current setup</h3>
-          <div class="compare-item"><span class="compare-x">✗</span> Exercise books and manual tallies</div>
-          <div class="compare-item"><span class="compare-x">✗</span> WhatsApp messages for sales updates</div>
-          <div class="compare-item"><span class="compare-x">✗</span> Manual counting every morning — wasted time</div>
-          <div class="compare-item"><span class="compare-x">✗</span> "Let me check and get back to you"</div>
-          <div class="compare-item"><span class="compare-x">✗</span> Monthly reconciliation that never adds up</div>
-          <div class="compare-item"><span class="compare-x">✗</span> No way to know if staff gave unauthorized discounts
-          </div>
-        </div>
-
-        <div class="compare-card after">
+          <ul>
+            <li>Sales written in exercise books</li>
+            <li>Stock updates buried in chats</li>
+            <li>Profit worked out after closing</li>
+            <li>Unclear records of staff changes</li>
+          </ul>
+        </article>
+        <article class="difference-card difference-card--after">
           <h3>With Stortrics</h3>
-          <div class="compare-item"><span class="compare-check">✓</span> One live system — always accurate</div>
-          <div class="compare-item"><span class="compare-check">✓</span> Real-time stock visibility across branches
+          <ul>
+            <li><span aria-hidden="true">✓</span> Sales and receipts kept together</li>
+            <li><span aria-hidden="true">✓</span> Stock updated as sales are recorded</li>
+            <li><span aria-hidden="true">✓</span> Sales, costs and profit in one view</li>
+            <li><span aria-hidden="true">✓</span> Staff access and activity records</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="walkthrough-section reference-showcase" id="features" aria-labelledby="walkthrough-title">
+    <div class="container">
+      <div class="reference-showcase-heading">
+        <h2 id="walkthrough-title">See how Stortrics works.</h2>
+        <p>Less guesswork for Nigerian shops. See sales, stock and profit as you record them.</p>
+      </div>
+      <div class="reference-feature-grid">
+        <article class="reference-feature-card">
+          <div class="reference-feature-copy">
+            <h3>Track</h3>
+            <p>Stock levels update with each recorded sale.</p>
           </div>
-          <div class="compare-item"><span class="compare-check">✓</span> Automatic updates — no morning counting</div>
-          <div class="compare-item"><span class="compare-check">✓</span> Instant answers from your dashboard</div>
-          <div class="compare-item"><span class="compare-check">✓</span> Every sale and return permanently recorded
+          <a class="feature-device-link" href="images/feature-track-demo.png" target="_blank" rel="noopener"
+            aria-label="View the Track stock screen in a new tab" title="View the stock screen">
+            <span class="feature-device"><span class="feature-device-screen">
+              <img src="images/feature-track-demo.png" width="390" height="844" loading="lazy" decoding="async"
+                alt="Stortrics product list showing demo stock quantities">
+            </span></span>
+          </a>
+        </article>
+        <article class="reference-feature-card reference-feature-card--dark">
+          <div class="reference-feature-copy">
+            <h3>Profit</h3>
+            <p>See daily profit from recorded sales and costs.</p>
           </div>
-          <div class="compare-item"><span class="compare-check">✓</span> Clear accountability — who did what, when</div>
+          <a class="feature-device-link" href="images/feature-profit-demo.png" target="_blank" rel="noopener"
+            aria-label="View the Profit report screen in a new tab" title="View the profit screen">
+            <span class="feature-device"><span class="feature-device-screen">
+              <img src="images/feature-profit-demo.png" width="390" height="844" loading="lazy" decoding="async"
+                alt="Stortrics sales analytics showing demo revenue and recorded profit">
+            </span></span>
+          </a>
+        </article>
+        <article class="reference-feature-card reference-feature-card--dark">
+          <div class="reference-feature-copy">
+            <h3>Offline</h3>
+            <p>Keep selling offline. Sync when the network returns.</p>
+          </div>
+          <a class="feature-device-link" href="images/feature-offline-demo.png" target="_blank" rel="noopener"
+            aria-label="View the Offline sales screen in a new tab" title="View the sales screen">
+            <span class="feature-device"><span class="feature-device-screen">
+              <img src="images/feature-offline-demo.png" width="390" height="844" loading="lazy" decoding="async"
+                alt="Stortrics mobile checkout with demo products and a current cart">
+            </span></span>
+          </a>
+        </article>
+        <article class="reference-feature-card">
+          <div class="reference-feature-copy">
+            <h3>Control</h3>
+            <p>Audit logs and role-based staff permissions.</p>
+          </div>
+          <a class="feature-device-link" href="images/feature-control-demo.png" target="_blank" rel="noopener"
+            aria-label="View the Control team screen in a new tab" title="View the team screen">
+            <span class="feature-device"><span class="feature-device-screen">
+              <img src="images/feature-control-demo.png" width="390" height="844" loading="lazy" decoding="async"
+                alt="Stortrics team management showing synthetic Owner, Manager and Cashier accounts">
+            </span></span>
+          </a>
+        </article>
+      </div>
+      <p class="reference-showcase-note">Actual Stortrics screens with demo data. Select a device for a closer look.</p>
+    </div>
+  </section>
+
+  <section class="shop-fit-section" id="business-types" aria-labelledby="shop-fit-title">
+    <div class="container">
+      <div class="modern-section-heading">
+        <h2 id="shop-fit-title">Built around your shop.</h2>
+        <p>For businesses that sell products, services or a mix of both.</p>
+      </div>
+      <ul class="shop-fit-grid" aria-label="Business examples">
+        <li>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8h16v13H4V8ZM9 8V3h6v5M12 11v7M8.5 14.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Pharmacies</span>
+        </li>
+        <li>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h3l3 13h11l3-10H6M9 20h.01M18 20h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1" fill="currentColor"/><circle cx="18" cy="20" r="1" fill="currentColor"/></svg>
+          <span>Supermarkets</span>
+        </li>
+        <li>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M10 5h4M11 19h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Gadget shops</span>
+        </li>
+        <li>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="6" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/><path d="m8 15 11-12M16 15 5 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Salons</span>
+        </li>
+      </ul>
+      <div class="shop-devices" aria-label="Supported devices">
+        <div class="shop-device">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="3" width="20" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M12 16v5M7 21h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Windows desktops and laptops</span>
+        </div>
+        <div class="shop-device">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="2" width="13" height="20" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="12" y="7" width="9" height="15" rx="2" fill="var(--review-off-white)" stroke="currentColor" stroke-width="1.7"/><path d="M15 19h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Android phones and tablets</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       HOW IT WORKS
-       ══════════════════════════════════════════ -->
-  <section class="how-section" id="how-it-works">
+  <!-- Third review checkpoint: getting started, pricing guidance and FAQs. -->
+  <section class="setup-section" id="how-it-works" aria-labelledby="setup-title">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Getting Started</div>
-        <h2 class="section-title">You don't need to change everything at once.</h2>
-        <p class="section-subtitle">
-          Start small, grow from there. Stortrics works the moment you set it up — and we'll walk you through every
-          step.
-        </p>
-      </div>
-
-      <div class="how-steps">
-        <div class="how-step reveal">
-          <div class="step-number">1</div>
-          <h3>Book a demo</h3>
-          <p>Chat with our team on WhatsApp. We'll show you how Stortrics works for your specific business — in under 15
-            minutes.</p>
+      <div class="setup-panel">
+        <div class="modern-section-heading">
+          <h2 id="setup-title">Start with a demo.</h2>
+          <p>Book a demo, ask your questions and see whether Stortrics fits the way you run your shop.</p>
         </div>
-
-        <div class="how-step reveal">
-          <div class="step-number">2</div>
-          <h3>Set up your shop</h3>
-          <p>We help you add your products, categories, staff accounts, and branch locations. Most businesses are live
-            within a day.</p>
-        </div>
-
-        <div class="how-step reveal">
-          <div class="step-number">3</div>
-          <h3>Start selling</h3>
-          <p>Process sales, track stock, and see your profit — all from day one. Everything works even without internet.
-          </p>
-        </div>
-      </div>
-
-      <div class="how-cta reveal">
-        <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
-          target="_blank" rel="noopener" class="btn-primary">Book a Demo →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       DEMO VIDEO
-       ══════════════════════════════════════════ -->
-  <!--   
-       <section class="demo-section" id="demo">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">See It in Action</div>
-        <h2 class="section-title">Watch Stortrics in action.</h2>
-        <p class="section-subtitle">
-          See how a real sale is processed — from scanning a product to printing the receipt — in under 60 seconds.
-        </p>
-      </div>
-
-      <div class="demo-wrapper reveal" id="demo-video-wrapper">
-        <img src="./images/analytics-desktop.png" alt="Stortrics dashboard preview" loading="lazy">
-        <div class="demo-play-overlay">
-          <div class="demo-play-btn">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M8 5.5v13l11-6.5L8 5.5z" fill="white" />
-            </svg>
-          </div>
-          <span class="demo-play-text">Watch the Demo</span>
-          <span class="demo-play-sub">See a complete sale in under 60 seconds</span>
-        </div>
-      </div>
-    </div>
-  </section>
- -->
-
-  <!-- ══════════════════════════════════════════
-       USER STORY
-       ══════════════════════════════════════════ -->
-  <section class="story-section" id="story">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Real Story</div>
-        <h2 class="section-title">A day at Oga Emeka's Gadget World.</h2>
-        <p class="section-subtitle">
-          See how a busy tech gadget store at Computer Village uses Stortrics to protect stock, catch fraud, and
-          know exactly where every naira goes.
-        </p>
-      </div>
-
-      <div class="story-card reveal">
-        <div class="story-header">
-          <h3>Oga Emeka runs a busy gadget store with 3 sales staff and a manager.</h3>
-          <p>He stocks everything from Tecno and Infinix smartphones to HP laptops, Oraimo power banks,
-            FreePods earbuds, and hundreds of accessories. Before Stortrics, he used exercise books and relied on trust
-            —
-            until he noticed phones going missing and profits not matching sales.</p>
-        </div>
-        <div class="story-body">
-          <div class="story-moment">
-            <span class="story-time">8:00 AM</span>
+        <ol class="setup-steps" aria-label="Steps to get started">
+          <li>
+            <span class="setup-step-number" aria-hidden="true">1</span>
             <div>
-              <h4>Morning stock check — zero counting</h4>
-              <p>Opens Stortrics on his laptop. Sees power banks are running low (5 left), calls his supplier before the
-                weekend rush. No more 30-minute morning counts — the app already knows what's in stock from yesterday's
-                sales.</p>
+              <h3>Book your demo</h3>
+              <p>Send us a message on WhatsApp and tell us what your shop sells.</p>
             </div>
-          </div>
-
-          <div class="story-moment">
-            <span class="story-time">10:30 AM</span>
+          </li>
+          <li>
+            <span class="setup-step-number" aria-hidden="true">2</span>
             <div>
-              <h4>Peak hours — fast checkout</h4>
-              <p>Customer buys an Infinix Note 40 (₦195,000) and Oraimo FreePods (₦12,000). Barcode scan, bank transfer
-                reference, receipt printed. Total time: 40 seconds. Stock updates automatically — no exercise book
-                needed.</p>
+              <h3>Talk through your setup</h3>
+              <p>We'll talk through your products, staff and devices, and answer your questions.</p>
             </div>
-          </div>
-
-          <div class="story-moment">
-            <span class="story-time">1:00 PM</span>
+          </li>
+          <li>
+            <span class="setup-step-number" aria-hidden="true">3</span>
             <div>
-              <h4>Catching fraud red-handed</h4>
-              <p>Notices a stock count mismatch. Opens the audit log: a sales staff member sold a power bank yesterday,
-                then processed a fake "return" 7 minutes later to pocket the cash. With exercise books, this scheme
-                would be invisible.</p>
-              <p class="story-impact">💡 This scheme was costing ₦150,000/month. The permanent audit trail caught it
-                immediately.</p>
+              <h3>Set up your shop</h3>
+              <p>If Stortrics is a good fit, we'll help you set up your products and staff accounts.</p>
             </div>
+          </li>
+        </ol>
+        <div class="setup-footer">
+          <div class="setup-pricing">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 3h8v8L11 21 3 13 13 3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="7" r="1.2" fill="currentColor"/></svg>
+            <p>Pricing depends on your business setup. Ask for a quote during your demo.</p>
           </div>
-
-          <div class="story-moment">
-            <span class="story-time">3:30 PM</span>
-            <div>
-              <h4>Bulk order — protected margins</h4>
-              <p>A businessman wants 5 laptops (₦380K each). Asks for a discount. The staff can't give one — the app
-                won't allow it for their role. Oga Emeka logs in, adjusts to ₦360K/unit (still ₦40K profit each),
-                approves. The audit log records every price change.</p>
-            </div>
-          </div>
-
-          <div class="story-moment">
-            <span class="story-time">8:00 PM</span>
-            <div>
-              <h4>End-of-day clarity</h4>
-              <p>Today's summary: ₦2,850,000 in sales across 47 transactions. Total profit: ₦485,000. He taps "Export
-                PDF" and WhatsApps it to his brother who handles the books. No staying late to count cash and tally
-                receipts.</p>
-              <p class="story-impact">💡 "We did ₦2.85M today, ₦485K profit." Real numbers, not guesswork.</p>
-            </div>
-          </div>
-
-          <div class="story-moment">
-            <span class="story-time">10:00 PM</span>
-            <div>
-              <h4>Automatic backup at home</h4>
-              <p>At home, Stortrics silently backs up the day's data over WiFi: 47 transactions, 15 stock adjustments, 2
-                price overrides. Everything is backed up. Nothing is lost.</p>
-            </div>
-          </div>
+          <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
+            target="_blank" rel="noopener" class="setup-demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.243-1.213l-.257-.154-2.833.84.84-2.833-.154-.257A8 8 0 1 1 12 20z" fill="currentColor"/></svg>
+            Book a demo on WhatsApp
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       FAQ
-       ══════════════════════════════════════════ -->
-  <section class="faq-section" id="faq">
+  <section class="questions-section" id="faq" aria-labelledby="questions-title">
     <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">FAQ</div>
-        <h2 class="section-title">Common questions.</h2>
-        <p class="section-subtitle">
-          Everything you need to know before getting started.
-        </p>
+      <div class="modern-section-heading">
+        <h2 id="questions-title">Frequently asked questions</h2>
+        <p>A few answers about using Stortrics in your shop.</p>
       </div>
-
-      <div class="faq-list reveal">
+      <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What kind of businesses is Stortrics built for?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
+          <button class="faq-question" type="button" id="faq-offline-question" aria-expanded="false" aria-controls="faq-offline-answer">
+            <span>Can I keep selling without internet?</span>
+            <span class="faq-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Stortrics is designed for any small to medium-sized Nigerian business — whether you sell products
-              (pharmacies, supermarkets, gadget stores, provision shops, boutiques), offer services (salons, barbing
-              shops, laundry, car washes, repair centres), or both. If you process sales and need to track what comes in
-              and goes out, Stortrics is for you.
-            </div>
+          <div class="faq-answer" id="faq-offline-answer" hidden>
+            <p class="faq-answer-inner">Yes. Once your shop is set up on a device, you can record sales and use locally saved stock information without internet. You'll need a connection for setup and online features.</p>
           </div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Does Stortrics work without internet?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
+          <button class="faq-question" type="button" id="faq-terminal-question" aria-expanded="false" aria-controls="faq-terminal-answer">
+            <span>Is this the same as a bank POS terminal?</span>
+            <span class="faq-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes — Stortrics is built offline-first. You can process sales, check stock, print receipts, and do
-              everything you need even with zero internet. When your connection returns, all data syncs automatically.
-              Nothing is ever lost.
-            </div>
+          <div class="faq-answer" id="faq-terminal-answer" hidden>
+            <p class="faq-answer-inner">Stortrics is software for recording sales and managing stock. It isn't a bank card terminal. You can record how a customer paid, including cash, a transfer or a card payment made through your existing terminal.</p>
           </div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            What devices can I use?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
+          <button class="faq-question" type="button" id="faq-devices-question" aria-expanded="false" aria-controls="faq-devices-answer">
+            <span>What devices and printer can I use?</span>
+            <span class="faq-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Stortrics runs on Windows desktops and laptops (the primary experience for day-to-day operations), Android
-              tablets, and Android phones. Most businesses use a desktop or laptop at their shop counter, and their
-              phone to check reports and stock levels on the go.
-            </div>
+          <div class="faq-answer" id="faq-devices-answer" hidden>
+            <p class="faq-answer-inner">Stortrics runs on Windows desktops and laptops, and on Android phones and tablets. Receipt printing depends on the device and printer connection. Tell us what you use and we'll check the setup with you during the demo.</p>
           </div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Is my data safe? What if my computer breaks?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
+          <button class="faq-question" type="button" id="faq-records-question" aria-expanded="false" aria-controls="faq-records-answer">
+            <span>How do I add my existing stock records?</span>
+            <span class="faq-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Your data is stored locally on your device and backed up to the cloud whenever you have internet. If your
-              device breaks, gets stolen, or needs to be replaced, you simply log into Stortrics on a new device and
-              everything is restored — all your products, sales history, staff accounts, and reports.
-            </div>
+          <div class="faq-answer" id="faq-records-answer" hidden>
+            <p class="faq-answer-inner">Have your product list and stock counts ready. During the demo, we'll show you how to add products, set opening stock and organise your categories. If you use a spreadsheet, we can discuss how to prepare those records.</p>
           </div>
         </div>
-
         <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Can my staff delete sales records or hide transactions?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
+          <button class="faq-question" type="button" id="faq-pricing-question" aria-expanded="false" aria-controls="faq-pricing-answer">
+            <span>How is pricing worked out?</span>
+            <span class="faq-chevron" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              No. Every sale, return, price change, and stock adjustment is permanently recorded in the audit log —
-              including who did it and when. These records cannot be edited or deleted by anyone, including the owner.
-              This is how Stortrics catches fraud that exercise books would miss.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How do I get started?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Simply book a demo — send us a message on WhatsApp or email. We'll give you a 15-minute walkthrough
-              tailored to your type of business, answer all your questions, and help you get set up. Most businesses are
-              fully operational within one day of onboarding.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            How much does Stortrics cost?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Pricing depends on your business size, number of branches, and the features you need. We offer flexible
-              plans designed to be affordable for Nigerian SMEs. Book a demo and we'll walk you through the options that
-              fit your business and budget — no surprises.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Can I manage multiple shop branches?
-            <span class="faq-chevron">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes. Stortrics supports multiple branches from a single account. Each branch maintains its own inventory
-              and staff, while you get a consolidated view of sales and stock across all locations. Run your Ogbete shop
-              and Computer Village branch — or your pharmacy in Lekki and Ikeja — from one login.
-            </div>
+          <div class="faq-answer" id="faq-pricing-answer" hidden>
+            <p class="faq-answer-inner">Ask for a quote during the demo. We'll discuss your business size, branches and the features you need, so you can review the cost before deciding.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       CTA SECTION
-       ══════════════════════════════════════════ -->
-  <section class="cta-section" id="cta">
+  <section class="closing-section" id="cta" aria-labelledby="closing-title">
     <div class="container">
-      <h2 class="reveal">Ready to run your business smarter?</h2>
-      <p class="cta-desc reveal">
-        Book a 15-minute demo and see how Stortrics works for your specific business.<br>
-        No pressure. No obligation. Just clarity.
-      </p>
-      <div class="cta-buttons reveal">
-        <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
-          target="_blank" rel="noopener" class="btn-primary" style="font-size:18px; padding: 17px 36px;">Book a Demo
-          →</a>
-        <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27m%20interested%20in%20Stortrics%20and%20would%20like%20more%20information."
-          target="_blank" rel="noopener" class="btn-whatsapp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-              fill="#25D366" />
-            <path
-              d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.213l-.257-.154-2.833.84.84-2.833-.154-.257A8 8 0 1112 20z"
-              fill="#25D366" />
-          </svg>
-          Chat on WhatsApp
-        </a>
-      </div>
-
-      <div class="cta-contacts reveal">
-        <div class="cta-contact-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
-            <path d="M1.5 6l6.5 4 6.5-4" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" />
-          </svg>
-          <a href="mailto:stortrics@gmail.com">stortrics@gmail.com</a>
+      <div class="closing-panel">
+        <div class="closing-copy">
+          <h2 id="closing-title">See Stortrics working for your shop.</h2>
+          <p>Book a demo and ask about the setup and pricing for your business.</p>
         </div>
-        <div class="cta-contact-item">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M4 2h2.5l1 3-1.5 1.5a8 8 0 003.5 3.5L11 8.5l3 1V12a1.5 1.5 0 01-1.5 1.5C6 13.5 2.5 10 2.5 3.5A1.5 1.5 0 014 2z"
-              stroke="currentColor" stroke-width="1.1" fill="none" />
-          </svg>
-          <a href="tel:09015689655">09015689655</a>
+        <div class="closing-actions">
+          <a href="https://wa.me/2349015689655?text=Hi%2C%20I%27d%20like%20to%20book%20a%20demo%20of%20Stortrics."
+            target="_blank" rel="noopener" class="closing-demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.243-1.213l-.257-.154-2.833.84.84-2.833-.154-.257A8 8 0 1 1 12 20z" fill="currentColor"/></svg>
+            Book a demo
+          </a>
+          <a href="mailto:stortrics@gmail.com" class="closing-email">stortrics@gmail.com</a>
         </div>
       </div>
-      <p class="cta-platforms reveal">Works on Windows, Android, tablets & phones</p>
     </div>
   </section>
 
@@ -940,12 +408,15 @@
        ══════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-brand">Stortrics</div>
+      <a href="#hero" class="footer-brand" aria-label="Stortrics home">
+        <img src="images/stortrics-logo.png" alt="" width="28" height="28">
+        <span>Stortrics</span>
+      </a>
       <ul class="footer-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Product</a></li>
+        <li><a href="#compare">The difference</a></li>
+        <li><a href="#how-it-works">Getting started</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#cta">Contact</a></li>
       </ul>
       <div class="footer-copy">© 2026 Stortrics. All rights reserved.</div>
     </div>
@@ -975,24 +446,51 @@
     const navToggle = document.getElementById('nav-toggle');
     const navLinks = document.getElementById('nav-links');
 
+    function setNavigationOpen(isOpen) {
+      navToggle.classList.toggle('active', isOpen);
+      navLinks.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    }
+
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
+      setNavigationOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+        setNavigationOpen(false);
+        navToggle.focus();
+      }
+    });
+
+    window.matchMedia('(max-width: 768px)').addEventListener('change', () => {
+      setNavigationOpen(false);
     });
 
     // Close mobile nav on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('open');
+        setNavigationOpen(false);
       });
     });
 
-    // ── Navbar scroll shadow ──
+    // Keep the contact shortcut below the intro, which already has a demo link.
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
+    const contactShortcut = document.querySelector('.whatsapp-float');
+    const guidedSections = document.querySelectorAll('.hero--modern, .problems-section--modern, .difference-section, .reference-showcase, .setup-section, .questions-section');
+    function updateHeaderState() {
       navbar.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
+      const readingGuidedSection = [...guidedSections].some(section => {
+        const bounds = section.getBoundingClientRect();
+        return bounds.top < window.innerHeight && bounds.bottom > navbar.offsetHeight;
+      });
+      contactShortcut.classList.toggle('intro-contact-hidden',
+        readingGuidedSection);
+    }
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderState);
+    updateHeaderState();
 
     // ── Scroll reveal ──
     const revealElements = document.querySelectorAll('.reveal');
@@ -1019,11 +517,13 @@
         // Close all
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
         document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        document.querySelectorAll('.faq-answer').forEach(a => { a.hidden = true; });
 
         // Toggle current
         if (!isOpen) {
           item.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
+          item.querySelector('.faq-answer').hidden = false;
         }
       });
     });
