@@ -3299,3 +3299,58 @@ html { scroll-padding-top: 88px; }
   .closing-copy p { font-size: 14px; }
   .footer-links { flex-wrap: wrap; gap: 12px 18px; }
 }
+
+/* Current product imagery: preserve the approved layout while matching each asset's native shape. */
+.hero-laptop-composite {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 28px rgb(29 33 30 / 16%));
+}
+
+.hero-device-stage { padding-block: 8px 20px; }
+.hero--modern .hero-preview figcaption { margin-top: 4px; }
+.reference-feature-card--wide-media .reference-feature-copy { width: 44%; }
+
+.reference-feature-card--wide-media .feature-device-link {
+  top: 2%;
+  right: 0;
+  width: 58%;
+  height: 98%;
+  border-radius: 0;
+}
+
+.reference-feature-card--wide-media .feature-device {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reference-feature-card--wide-media .feature-device::before,
+.reference-feature-card--wide-media .feature-device::after { display: none; }
+
+.reference-feature-card--wide-media .feature-device-screen {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+}
+
+.reference-feature-card--wide-media .feature-device img {
+  width: 132%;
+  max-width: none;
+  height: auto;
+  margin: 0 -16% -3%;
+  object-fit: contain;
+}
